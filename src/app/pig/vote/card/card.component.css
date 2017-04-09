@@ -1,0 +1,31 @@
+.pig-card {
+  border-radius: .8vw;
+  margin: .8vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 12vw;
+  height: 17vw;
+  max-width: 5em;
+  max-height: 7em;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+  padding: .5em .6em;
+  background: #fdde5f;
+}
+
+.pig-card:active {
+  opacity: .6;
+}
+
+.pig-card-content {
+  font-size: 1.5vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: #fff;
+  background: #fdb74a;
+}

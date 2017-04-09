@@ -1,0 +1,54 @@
+<div class="pig">
+  <div class="pig-header">
+    <div class="pig-header-content">
+      <div>
+        <i class="fa fa-hashtag"></i> Planning poker
+      </div>
+
+      <div class="pig-name">{{ pig?.name }} <i class="fa fa-user-circle"></i></div>
+    </div>
+  </div>
+
+  <div class="pig-sub-header">
+    <div class="pig-sub-header-left">
+      <div class="pig-sub-header-label">
+        <div *ngIf="status === EStatus.REGISTRATION">REGISTRATION</div>
+        <div *ngIf="status === EStatus.DISCUSSION">DISCUSSION</div>
+        <div *ngIf="status === EStatus.VOTE && !hasVoted">VOTING</div>
+        <div *ngIf="status === EStatus.VOTE && hasVoted">WAITING...</div>
+        <div *ngIf="status === EStatus.RESULT">RESULT</div>
+        <div *ngIf="status === EStatus.FINAL_RESULT">FINAL RESULT</div>
+      </div>
+
+      <div class="pig-scrum-actions" *ngIf="scrumMasterKey && scrumMasterKey === pig?.key">
+        <button (click)="setStatus(EStatus.DISCUSSION)" *ngIf="status === EStatus.REGISTRATION">START</button>
+        <button (click)="setStatus(EStatus.VOTE)" *ngIf="status === EStatus.DISCUSSION">VOTE</button>
+        <button (click)="setStatus(EStatus.REVOTE)" *ngIf="status === EStatus.RESULT">RE-VOTE</button>
+        <button (click)="setStatus(EStatus.RESULT)" *ngIf="status === EStatus.VOTE">STOP VOTING</button>
+        <button (click)="setStatus(EStatus.DISCUSSION)" *ngIf="status === EStatus.RESULT">NEXT</button>
+        <button (click)="setStatus(EStatus.FINAL_RESULT)" *ngIf="status === EStatus.RESULT">END</button>
+      </div>
+    </div>
+
+    <div *ngIf="!scrumMasterKey || scrumMasterKey === pig?.key">
+      <md-slide-toggle id="toto" color="warn" (change)="toggleScrumMaster()" [checked]="pig?.key === scrumMasterKey">
+        <div class="pig-scrum-master">Scrum Master</div>
+      </md-slide-toggle>
+    </div>
+  </div>
+
+  <div class="pig-content">
+    <pig-vote class="pig-vote" *ngIf="status === EStatus.VOTE && !hasVoted" (voted)="vote($event)"></pig-vote>
+  </div>
+
+  <div class="pig-footer">
+    <div class="pig-messages">
+      <div class="pig-message" *ngFor="let message of messages$ | async">{{ message.text }}</div>
+      <div class="pig-message" _ngcontent-c1="">Pig1 joined the group</div>
+      <div class="pig-message" _ngcontent-c1="">Pig1 joined the group</div>
+      <div class="pig-message" _ngcontent-c1="">Pig1 joined the group</div>
+      <div class="pig-message" _ngcontent-c1="">Pig1 joined the group</div>
+      <div class="pig-message" _ngcontent-c1="">Pig1 joined the group</div>
+    </div>
+  </div>
+</div>

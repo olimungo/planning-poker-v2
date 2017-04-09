@@ -1,0 +1,38 @@
+@font-face {
+  font-family: Roboto;
+  font-weight: 100;
+  src: url('assets/roboto/Roboto-Thin.ttf');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  src: url('assets/roboto/Roboto-Light.ttf');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 500;
+  src: url('assets/roboto/Roboto-Medium.ttf');
+}
+
+* {
+  font-family: Roboto;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background: rgba(75, 176, 255, 0.06);
+}
+
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+@import '~font-awesome/css/font-awesome.css';
+.mat-fab.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+  background-color: #2587bd;
+}
