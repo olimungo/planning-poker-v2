@@ -1,0 +1,83 @@
+.pig-sub-header {
+  background: #039be5;
+  color: rgba(255, 255, 255, .7);
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 0 transparent;
+  position: relative;
+  transition: box-shadow .3s ease;
+  z-index: 10;
+  padding: .3vw 0vw .3vw 2vw;
+  height: 5vh;
+  font-weight: 300;
+}
+
+.pig-sub-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.pig-sub-header-state {
+  font-size: 1.8vw;
+  width: 18vw;
+}
+
+.pig-scrum-actions {
+  margin: 1em;
+}
+
+.pig-sub-header button {
+  border: none;
+  color: rgba(255, 255, 255, .6);
+  cursor: pointer;
+  padding: 0 .5em;
+  width: 18vw;
+  height: 3.5vh;
+  font-size: 1.2vw;
+  background: none;
+}
+
+.pig-sub-header button:hover {
+  background: rgba(0, 0, 0, .2);
+}
+
+.pig-sub-header button:active {
+  background: rgba(0, 0, 0, .4);
+}
+
+.pig-scrum-master {
+  display: none;
+}
+
+@media screen and (min-width: 550px) {
+  .pig-scrum-master {
+    display: initial;
+  }
+  .pig-sub-header {
+    padding: .3vw 2vw .3vw 3vw;
+  }
+  .pig-sub-header-state {
+    font-size: 2.3vw;
+  }
+  .pig-sub-header button {
+    padding: 0 .5em;
+    width: 15vw;
+    height: 3.5vh;
+    font-size: 2vw;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .pig-sub-header-state {
+    font-size: 1.3em;
+    width: 10em;
+  }
+  .pig-sub-header button {
+    padding: 0 .5em;
+    width: 9em;
+    height: 2.3em;
+    font-size: 1em;
+  }
+}

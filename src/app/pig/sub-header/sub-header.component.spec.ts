@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WaitEndOfVotesComponent } from './wait-end-of-votes.component';
+import { SubHeaderComponent } from './sub-header.component';
 
-describe('WaitEndOfVotesComponent', () => {
-  let component: WaitEndOfVotesComponent;
-  let fixture: ComponentFixture<WaitEndOfVotesComponent>;
+describe('SubHeaderComponent', () => {
+  let component: SubHeaderComponent;
+  let fixture: ComponentFixture<SubHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WaitEndOfVotesComponent ]
+      declarations: [ SubHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WaitEndOfVotesComponent);
+    fixture = TestBed.createComponent(SubHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

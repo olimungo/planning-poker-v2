@@ -1,5 +1,5 @@
 export interface IMessage {
   key: string;
-  date_created: number;
+  dateCreated: number;
   text: string;
 }

@@ -4,8 +4,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 
-import { IPig } from './entities/pig';
-import { IMessage } from './entities/message';
+import { IPig } from './entities/pig.interface';
+import { IMessage } from './entities/message.interface';
 import { EStatus } from './entities/status.enum';
 
 import { PigService } from './pig.service';
@@ -19,7 +19,6 @@ export class PigComponent {
   boardKey: string;
   EStatus = EStatus;
   pig: IPig;
-  scrumMasterKey: string;
   messages$: Observable<IMessage[]>;
   status: number;
   hasVoted: boolean;
@@ -33,7 +32,6 @@ export class PigComponent {
         this.pig = pig;
 
         if (this.pig) {
-          this.messages$ = this.pigService.retrieveAllMessages$(this.boardKey, pig.date_created);
           this.setWatchers();
         } else {
           console.log('Pig doesn\'t exists');
@@ -57,14 +55,6 @@ export class PigComponent {
     });
   }
 
-  toggleScrumMaster() {
-    this.pigService.toggleScrumMaster(this.boardKey, this.pig.key);
-  }
-
-  setStatus(status: EStatus) {
-    this.pigService.setStatus(this.boardKey, status);
-  }
-
   vote(label: string) {
     this.pigService.vote(this.boardKey, this.pig.key, label);
   }
@@ -73,10 +63,6 @@ export class PigComponent {
   setWatchers() {
     this.pigService.retrieveStatus$(this.boardKey).subscribe((status: number) => {
       this.status = status;
-    });
-
-    this.pigService.retrieveScrumMaster$(this.boardKey).subscribe((scrumMasterKey: string) => {
-      this.scrumMasterKey = scrumMasterKey;
     });
 
     this.pigService.retrieveHasVoted$(this.boardKey, this.pig.key).subscribe((hasVoted: boolean) => {

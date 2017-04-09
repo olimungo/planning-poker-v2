@@ -1,10 +1,11 @@
-.pig-vote {
+.pig-cards-deck {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
-.pig-vote-cards {
+.pig-cards {
   display: flex;
   flex-wrap: wrap;
   max-width: 40em;

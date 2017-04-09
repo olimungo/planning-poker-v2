@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import 'rxjs/add/operator/take';
 
-import { IPig } from './entities/pig';
-import { IMessage } from './entities/message';
+import { IPig } from './entities/pig.interface';
+import { IMessage } from './entities/message.interface';
 import { EStatus } from './entities/status.enum';
 
 @Injectable()
@@ -14,10 +14,10 @@ export class PigService {
 
   createPig$(boardKey: string): Observable<IPig> {
     return Observable.create((observer: Observer<IPig>) => {
-      const pigs$ = this.af.database.list(`boards/${boardKey}/pigs`, { query: { orderByChild: 'date_created' } });
-      const date_created = new Date().getTime();
-      const newPig$ = pigs$.push({ date_created: date_created });
-      const pig: IPig = { key: newPig$.ref.key, date_created: date_created };
+      const pigs$ = this.af.database.list(`boards/${boardKey}/pigs`, { query: { orderByChild: 'date-created' } });
+      const dateCreated = new Date().getTime();
+      const newPig$ = pigs$.push({ 'date-created': dateCreated });
+      const pig: IPig = { key: newPig$.ref.key, dateCreated: dateCreated };
 
       // Retrieve the new inserted pig in the ordered by created_date list, in order to assign a counter to the new pig.
       pigs$.take(1).subscribe((pigs: any[]) => {
@@ -43,7 +43,7 @@ export class PigService {
       .take(1)
       .map((pig: any) => {
         if (pig.$exists()) {
-          result = { key: pig.$key, name: pig.name, date_created: pig.date_created };
+          result = { key: pig.$key, name: pig.name, dateCreated: pig['date-created'] };
         }
 
         return result;
@@ -54,22 +54,22 @@ export class PigService {
     return this.af.database.list(`boards/${boardKey}/pigs`)
       .map((pigs: any[]) => {
         return pigs.map((pig: any) => {
-          return { key: pig.$key, name: pig.name, date_created: pig.date_created }
+          return { key: pig.$key, name: pig.name, dateCreated: pig['date-created'] }
         });
       });
   }
 
   retrieveAllMessages$(boardKey: string, dateThreshold: number): Observable<IMessage[]> {
-    return this.af.database.list(`boards/${boardKey}/messages`, { query: { startAt: dateThreshold, orderByChild: 'date_created' } })
+    return this.af.database.list(`boards/${boardKey}/messages`, { query: { startAt: dateThreshold, orderByChild: 'date-created' } })
       .map((messages: any[]) => {
         return messages.map((message: any) => {
-          return { key: message.$key, text: message.text, date_created: message.date_created };
+          return { key: message.$key, text: message.text, dateCreated: message['date-created'] };
         });
       });
   }
 
   addMessage(boardKey: string, text: string) {
-    this.af.database.list(`boards/${boardKey}/messages`).push({ date_created: new Date().getTime(), text: text });
+    this.af.database.list(`boards/${boardKey}/messages`).push({ 'date-created': new Date().getTime(), text: text });
   }
 
   retrieveScrumMaster$(boardKey: string): Observable<string> {

@@ -5,12 +5,11 @@ import { MaterialModule } from '@angular/material';
 import { routing, appRoutingProviders } from './pig.routing';
 
 import { PigComponent } from './pig.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { DiscussionComponent } from './discussion/discussion.component';
-import { EndComponent } from './end/end.component';
-import { VoteComponent } from './vote/vote.component';
-import { WaitEndOfVotesComponent } from './wait-end-of-votes/wait-end-of-votes.component';
-import { CardComponent } from './vote/card/card.component';
+import { CardsDeckComponent } from './cards-deck/cards-deck.component';
+import { CardComponent } from './cards-deck/card/card.component';
+import { HeaderComponent } from './header/header.component';
+import { SubHeaderComponent } from './sub-header/sub-header.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   imports: [
@@ -23,12 +22,11 @@ import { CardComponent } from './vote/card/card.component';
   ],
   declarations: [
     PigComponent,
-    RegistrationComponent,
-    DiscussionComponent,
-    EndComponent,
-    VoteComponent,
-    WaitEndOfVotesComponent,
-    CardComponent
+    CardsDeckComponent,
+    CardComponent,
+    HeaderComponent,
+    SubHeaderComponent,
+    MessagesComponent
   ],
   providers: [
     appRoutingProviders

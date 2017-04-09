@@ -1,0 +1,43 @@
+.pig-header {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  background-color: #0288d1;
+  color: #fff;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 1px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  padding: .5em .8em;
+  font-weight: 100;
+  font-size: 3.5vw;
+}
+
+.pig-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pig-name {
+  font-size: 2.5vw;
+  font-weight: 300;
+  color: rgba(255, 255, 255, .7);
+  display: flex;
+  align-items: center;
+}
+
+.pig-name .fa {
+  font-size: 5vw;
+  margin-left: .3em;
+}
+
+@media screen and (min-width: 650px) {
+  .pig-header {
+    font-size: 1.5em;
+  }
+  .pig-name {
+    font-size: .7em;
+  }
+  .pig-name .fa {
+    font-size: 2em;
+  }
+}
