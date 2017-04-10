@@ -1,0 +1,11 @@
+<div class="core-pig">
+  <div class="core-pig-tag">
+    <span class="core-pig-badge" [class.hidden]="!badge">{{ badge }}</span>
+
+    <i class="fa fa-user-circle" *ngIf="!gravatarUrl"></i>
+    <img class="core-pig-avatar" [src]="gravatarUrl" alt="" *ngIf="gravatarUrl">
+
+    <span class="core-pig-name">{{ name }}</span>
+
+  </div>
+</div>

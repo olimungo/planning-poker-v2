@@ -67,11 +67,20 @@ export class BoardService {
   retrieveCountVotedPigss$(boardKey): Observable<number> {
     return this.af.database.list(`boards/${boardKey}/pigs`, { query: { orderByChild: 'has-voted', equalTo: false }})
       .map((pigs: any[]) => {
-        return pigs.length;
+        return pigs.filter(pig => pig['is-active']).length;
       });
   }
 
   setStatus(boardKey: string, status: number) {
     this.af.database.object(`boards/${boardKey}/status`).set(status);
+  }
+
+  retrieveAllPigs$(boardKey: string): Observable<IPig[]> {
+    return this.af.database.list(`boards/${boardKey}/pigs`)
+      .map((pigs: any[]) => {
+        return pigs.map((pig: any) => {
+          return { key: pig.$key, name: pig.name, email: pig.email, hasVoted: pig['has-voted'], isActive: pig['is-active'] };
+        });
+      });
   }
 }

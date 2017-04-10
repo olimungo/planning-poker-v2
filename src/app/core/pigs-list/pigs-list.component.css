@@ -1,0 +1,8 @@
+.core-pigs-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.core-pigs-list core-pig {
+  margin: 10px;
+}

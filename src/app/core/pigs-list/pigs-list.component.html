@@ -1,0 +1,3 @@
+<div class="core-pigs-list">
+  <core-pig *ngFor="let pig of pigs" [name]="pig.name" [badge]="pig.badge" [email]="pig.email" (click)="openDialog(pig)"></core-pig>
+</div>

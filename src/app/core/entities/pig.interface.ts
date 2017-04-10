@@ -1,6 +1,9 @@
 export interface IPig {
   key: string;
   name?: string;
-  dateCreated?: number;
+  badge?: string;
+  email?: string;
   hasVoted?: boolean;
+  isActive?: boolean;
+  dateCreated?: number;
 }

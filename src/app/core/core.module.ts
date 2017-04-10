@@ -1,24 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule, MdDialogModule } from '@angular/material';
 
 import { CoreGridComponent } from './grid/grid.component';
-import { UsersListComponent } from './users-list/users-list.component';
-import { UserComponent } from './users-list/user/user.component';
+import { PigsListComponent } from './pigs-list/pigs-list.component';
+import { PigComponent } from './pigs-list/pig/pig.component';
+import { ModalComponent } from './pigs-list/modal/modal.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    MdDialogModule
   ],
   exports: [
     CoreGridComponent,
-    UsersListComponent
+    PigsListComponent
   ],
   declarations: [
     CoreGridComponent,
-    UsersListComponent,
-    UserComponent
+    PigsListComponent,
+    PigComponent,
+    ModalComponent
+  ],
+  entryComponents: [
+    ModalComponent
   ]
 })
 export class CoreModule { }

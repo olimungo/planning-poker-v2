@@ -6,26 +6,37 @@
   color: #fff;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 1px 8px 0 rgba(0, 0, 0, 0.2);
   z-index: 20;
-  padding: .5em .8em;
+  padding: .2em .8em;
   font-weight: 100;
   font-size: 3.5vw;
 }
 
-.pig-header-content {
+.pig-header .pig-header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.pig-name {
+.pig-header .pig-name {
   font-size: 2.5vw;
   font-weight: 300;
   color: rgba(255, 255, 255, .7);
   display: flex;
   align-items: center;
+  padding: .7vw 1vw;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
-.pig-name .fa {
+.pig-header .pig-name:hover {
+  background: rgba(0, 0, 0, .2);
+}
+
+.pig-header .pig-name:active {
+  background: rgba(0, 0, 0, .5);
+}
+
+.pig-header .pig-name .fa {
   font-size: 5vw;
   margin-left: .3em;
 }
@@ -34,10 +45,10 @@
   .pig-header {
     font-size: 1.5em;
   }
-  .pig-name {
+  .pig-header .pig-name {
     font-size: .7em;
   }
-  .pig-name .fa {
+  .pig-header .pig-name .fa {
     font-size: 2em;
   }
 }
