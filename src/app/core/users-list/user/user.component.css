@@ -1,0 +1,64 @@
+.core-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.core-user .core-user-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.core-user .core-user-tag .fa {
+  font-size: 10vw;
+  color: #c36218;
+}
+
+.core-user .core-user-name {
+  font-size: 1.5vw;
+  background: #c36218;
+  color: #fff;
+  padding: .4vw .5vw;
+  border-radius: 2px;
+  width: 10vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  position: relative;
+  top: -10px;
+}
+
+.core-user .core-user-badge {
+  font-size: 1.3vw;
+  background: #c36218;
+  color: #fff;
+  border-radius: 50%;
+  width: 3vw;
+  height: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 3vw;
+  left: 3vw;
+}
+
+@media screen and (min-width: 900px) {
+  .core-user .core-user-tag .fa {
+    font-size: 7em;
+  }
+  .core-user .core-user-name {
+    font-size: .8em;
+    padding: .5em .8em;
+    width: 7em;
+  }
+  .core-user .core-user-badge {
+    font-size: 1em;
+    width: 2em;
+    height: 2em;
+    top: 2.5em;
+    left: 2.5em;
+  }
+}

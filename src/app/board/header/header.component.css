@@ -1,0 +1,24 @@
+.board-header {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  background-color: #3b3f51;
+  color: #fff;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 1px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  padding: .5em .8em;
+  font-weight: 100;
+  font-size: 3.5vw;
+}
+
+.board-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 650px) {
+  .board-header {
+    font-size: 1.5em;
+  }
+}

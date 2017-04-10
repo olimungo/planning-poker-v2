@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { BoardService } from '../board.service';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -8,18 +7,16 @@ import { environment } from '../../../environments/environment';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
+  @Input() set boardKey(value: string) {
+    this.url = environment.backEndUrl + 'pig/' + value;
+  }
+
   url = '';
 
-  constructor(private boardService: BoardService) {
-    this.url = environment.backEndUrl + 'pig/' + this.boardService.getNewBoardId();
-  }
+  constructor() { }
 
-  ngOnInit() {
-  }
-
-  test() {
+  createPig() {
     window.open(this.url);
-    // this.boardService.register();
   }
 }

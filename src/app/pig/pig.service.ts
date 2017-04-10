@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
-import 'rxjs/add/operator/take';
+import { Observable, Observer } from 'rxjs/Rx';
 
-import { IPig } from './entities/pig.interface';
-import { IMessage } from './entities/message.interface';
-import { EStatus } from './entities/status.enum';
+import { IPig, IMessage, EStatus } from '../core/entities';
 
 @Injectable()
 export class PigService {
@@ -54,7 +50,7 @@ export class PigService {
     return this.af.database.list(`boards/${boardKey}/pigs`)
       .map((pigs: any[]) => {
         return pigs.map((pig: any) => {
-          return { key: pig.$key, name: pig.name, dateCreated: pig['date-created'] }
+          return { key: pig.$key, name: pig.name, dateCreated: pig['date-created'] };
         });
       });
   }
@@ -112,41 +108,7 @@ export class PigService {
   }
 
   setStatus(boardKey: string, status: number) {
-    const currentRound$ = this.af.database.object(`boards/${boardKey}/current-round`);
-
-    if (status === EStatus.VOTE) {
-      const currentStory$ = this.af.database.object(`boards/${boardKey}/current-story`);
-
-      currentStory$.take(1).subscribe((currentStory: any) => {
-          if (currentStory.$value) {
-            currentStory$.set(++currentStory.$value);
-          } else {
-            currentStory$.set(1);
-          }
-
-          currentRound$.set(1);
-      });
-    }
-
-    if (status === EStatus.REVOTE) {
-      currentRound$.take(1).subscribe((currentRound: any) => {
-        currentRound$.set(++currentRound.$value);
-      });
-
-      status = EStatus.VOTE;
-    }
-
     this.af.database.object(`boards/${boardKey}/status`).set(status);
-
-    if (status === EStatus.VOTE) {
-      this.af.database.list(`boards/${boardKey}/pigs`)
-        .take(1)
-        .subscribe((pigs: any[]) => {
-          pigs.map((pig: any) => {
-            this.af.database.object(`boards/${boardKey}/pigs/${pig.$key}/has-voted`).set(false);
-          });
-        });
-    }
   }
 
   vote(boardKey: string, pigKey: string, label: string) {

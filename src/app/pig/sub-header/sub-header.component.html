@@ -9,10 +9,10 @@
       <div *ngIf="status === EStatus.FINAL_RESULT">FINAL RESULT</div>
     </div>
 
-    <div class="pig-scrum-actions" *ngIf="scrumMasterKey && scrumMasterKey === _pigKey">
+    <div class="pig-sub-header-actions" *ngIf="scrumMasterKey && scrumMasterKey === _pigKey">
       <button (click)="setStatus(EStatus.DISCUSSION)" *ngIf="status === EStatus.REGISTRATION">START</button>
-      <button (click)="setStatus(EStatus.VOTE)" *ngIf="status === EStatus.DISCUSSION">VOTE</button>
-      <button (click)="setStatus(EStatus.REVOTE)" *ngIf="status === EStatus.RESULT">RE-VOTE</button>
+      <button (click)="setStatus(EStatus.PRE_VOTE)" *ngIf="status === EStatus.DISCUSSION">VOTE</button>
+      <button (click)="setStatus(EStatus.PRE_REVOTE)" *ngIf="status === EStatus.RESULT">RE-VOTE</button>
       <button (click)="setStatus(EStatus.RESULT)" *ngIf="status === EStatus.VOTE">STOP VOTING</button>
       <button (click)="setStatus(EStatus.DISCUSSION)" *ngIf="status === EStatus.RESULT">NEXT</button>
       <button (click)="setStatus(EStatus.FINAL_RESULT)" *ngIf="status === EStatus.RESULT">END</button>
@@ -22,6 +22,7 @@
   <div *ngIf="!scrumMasterKey || scrumMasterKey === _pigKey">
     <md-slide-toggle color="warn" (change)="toggleScrumMaster()" [checked]="_pigKey === scrumMasterKey">
       <div class="pig-scrum-master">Scrum Master</div>
+      <div class="pig-scrum-sm">SM</div>
     </md-slide-toggle>
   </div>
 </div>

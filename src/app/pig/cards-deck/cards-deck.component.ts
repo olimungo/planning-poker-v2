@@ -8,7 +8,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class CardsDeckComponent {
   @Output() choose: EventEmitter<string> = new EventEmitter();
 
-  cards = [ '?', '0', '1/2', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'INF', 'K' ];
+  cards = [ '?', '0', '1/2', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'INF' ];
 
   chosen(label: string) {
     this.choose.emit(label);

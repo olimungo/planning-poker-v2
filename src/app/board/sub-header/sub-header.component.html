@@ -1,0 +1,9 @@
+<div class="board-sub-header">
+  <div class="board-sub-header-state">
+    <div *ngIf="status === EStatus.REGISTRATION">REGISTRATION</div>
+    <div *ngIf="status === EStatus.DISCUSSION">DISCUSSION</div>
+    <div *ngIf="status === EStatus.VOTE">VOTING</div>
+    <div *ngIf="status === EStatus.RESULT">RESULT</div>
+    <div *ngIf="status === EStatus.FINAL_RESULT">FINAL RESULT</div>
+  </div>
+</div>

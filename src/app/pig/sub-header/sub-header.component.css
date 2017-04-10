@@ -9,32 +9,33 @@
   position: relative;
   transition: box-shadow .3s ease;
   z-index: 10;
-  padding: .3vw 0vw .3vw 2vw;
-  height: 5vh;
+  padding: 0 2vw;
+  height: 8vw;
   font-weight: 300;
 }
 
-.pig-sub-header-left {
+.pig-sub-header .pig-sub-header-left {
   display: flex;
   align-items: center;
 }
 
-.pig-sub-header-state {
-  font-size: 1.8vw;
+.pig-sub-header .pig-sub-header-state {
+  font-size: 1.5vw;
   width: 18vw;
+  margin-right: 1em;
 }
 
-.pig-scrum-actions {
-  margin: 1em;
+.pig-sub-header-actions {
+  display: flex;
+  justify-content: center;
 }
 
 .pig-sub-header button {
   border: none;
   color: rgba(255, 255, 255, .6);
   cursor: pointer;
-  padding: 0 .5em;
-  width: 18vw;
-  height: 3.5vh;
+  padding: 1.2vw .3vw;
+  width: 15vw;
   font-size: 1.2vw;
   background: none;
 }
@@ -47,37 +48,43 @@
   background: rgba(0, 0, 0, .4);
 }
 
-.pig-scrum-master {
+.pig-sub-header .pig-scrum-master {
   display: none;
 }
 
-@media screen and (min-width: 550px) {
-  .pig-scrum-master {
+.pig-sub-header .mat-slide-toggle {
+  margin: 0;
+}
+
+@media screen and (min-width: 500px) {
+  .pig-sub-header .pig-scrum-sm {
+    display: none;
+  }
+  .pig-sub-header .pig-scrum-master {
     display: initial;
   }
-  .pig-sub-header {
-    padding: .3vw 2vw .3vw 3vw;
-  }
-  .pig-sub-header-state {
+  .pig-sub-header .pig-sub-header-state {
     font-size: 2.3vw;
   }
-  .pig-sub-header button {
-    padding: 0 .5em;
-    width: 15vw;
-    height: 3.5vh;
-    font-size: 2vw;
+  .pig-sub-header .pig-sub-header-actions button {
+    padding: 1.2vw .3vw;
+    width: 17vw;
+    font-size: 2.3vw;
   }
 }
 
-@media screen and (min-width: 900px) {
-  .pig-sub-header-state {
-    font-size: 1.3em;
-    width: 10em;
+@media screen and (min-width: 700px) {
+  .pig-sub-header {
+    padding: 0 1em;
+    height: 4em;
   }
-  .pig-sub-header button {
-    padding: 0 .5em;
-    width: 9em;
-    height: 2.3em;
+  .pig-sub-header .pig-sub-header-state {
+    font-size: 1.2em;
+    width: 8em;
+  }
+  .pig-sub-header .pig-sub-header-actions button {
+    padding: .5em .4em;
+    width: 8em;
     font-size: 1em;
   }
 }

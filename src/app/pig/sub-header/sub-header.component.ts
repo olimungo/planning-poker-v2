@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { EStatus } from '../entities/status.enum';
+import { EStatus } from '../../core/entities';
 import { PigService } from '../pig.service';
 
 @Component({

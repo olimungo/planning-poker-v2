@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, Observer } from 'rxjs/Rx';
 
-import { IPig } from './entities/pig.interface';
-import { IMessage } from './entities/message.interface';
-import { EStatus } from './entities/status.enum';
-
+import { IPig, IMessage, EStatus } from '../core/entities';
 import { PigService } from './pig.service';
 
 @Component({
@@ -24,17 +20,17 @@ export class PigComponent {
   hasVoted: boolean;
 
   constructor(private route: ActivatedRoute, private location: Location, private pigService: PigService) {
-    this.route.params.subscribe((params: Params) => {
+    this.route.params.subscribe(params => {
       this.boardKey = params['boardKey'];
       const pigKey = params['pigKey'];
 
-      this.retrieveOrCreatePig(pigKey).subscribe((pig: IPig) => {
+      this.retrieveOrCreatePig(pigKey).subscribe(pig => {
         this.pig = pig;
 
         if (this.pig) {
           this.setWatchers();
         } else {
-          console.log('Pig doesn\'t exists');
+          console.error('Pig doesn\'t exists');
         }
       });
     });
@@ -43,11 +39,11 @@ export class PigComponent {
   retrieveOrCreatePig(pigKey: string): Observable<IPig> {
     return Observable.create((observer: Observer<IPig>) => {
       if (pigKey) {
-        this.pigService.retrievePig$(this.boardKey, pigKey).subscribe((pig: IPig) => {
+        this.pigService.retrievePig$(this.boardKey, pigKey).subscribe(pig => {
           observer.next(pig);
         });
       } else {
-        this.pigService.createPig$(this.boardKey).subscribe((pig: IPig) => {
+        this.pigService.createPig$(this.boardKey).subscribe(pig => {
           this.location.replaceState(this.location.path() + `/${pig.key}`);
           observer.next(pig);
         });
@@ -61,11 +57,11 @@ export class PigComponent {
 
   // To prevent streams to be subscribed many times in the HTML template
   setWatchers() {
-    this.pigService.retrieveStatus$(this.boardKey).subscribe((status: number) => {
+    this.pigService.retrieveStatus$(this.boardKey).subscribe(status => {
       this.status = status;
     });
 
-    this.pigService.retrieveHasVoted$(this.boardKey, this.pig.key).subscribe((hasVoted: boolean) => {
+    this.pigService.retrieveHasVoted$(this.boardKey, this.pig.key).subscribe(hasVoted => {
       this.hasVoted = hasVoted;
     });
   }

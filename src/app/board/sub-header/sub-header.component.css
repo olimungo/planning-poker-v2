@@ -1,0 +1,36 @@
+.board-sub-header {
+  background: #474c60;
+  color: rgba(255, 255, 255, .7);
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 0 transparent;
+  position: relative;
+  transition: box-shadow .3s ease;
+  z-index: 10;
+  padding: 0 2vw;
+  height: 8vw;
+  font-weight: 300;
+}
+
+.board-sub-header .board-sub-header-state {
+  font-size: 1.5vw;
+  width: 18vw;
+}
+
+@media screen and (min-width: 550px) {
+  .board-sub-header .board-sub-header-state {
+    font-size: 2vw;
+  }
+}
+@media screen and (min-width: 900px) {
+  .board-sub-header {
+    padding: 0 1em;
+    height: 4em;
+  }
+  .board-sub-header .board-sub-header-state {
+    font-size: 1.2em;
+    width: 10em;
+  }
+}

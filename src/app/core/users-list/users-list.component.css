@@ -1,0 +1,7 @@
+.core-users-list {
+  display: flex;
+}
+
+.core-users-list core-user {
+  margin: 10px;
+}

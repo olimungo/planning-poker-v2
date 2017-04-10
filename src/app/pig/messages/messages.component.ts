@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 
+import { IMessage } from '../../core/entities';
 import { PigService } from '../pig.service';
-import { IMessage } from '../entities/message.interface';
 
 @Component({
   selector: 'pig-messages',
