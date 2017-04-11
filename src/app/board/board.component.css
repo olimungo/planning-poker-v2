@@ -1,4 +1,10 @@
 .board {
-  background: #a7abbb;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #a7abbb;
+}
+
+.board-content {
+  flex: 1;
 }

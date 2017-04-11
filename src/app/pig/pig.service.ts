@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { Observable, Observer } from 'rxjs/Rx';
 
-import { IPig, IMessage, EStatus } from '../core/entities';
+import { IPig, EStatus } from '../core/entities';
 
 @Injectable()
 export class PigService {
@@ -24,8 +24,6 @@ export class PigService {
         pig.name = `Pig${pigNum}`;
 
         newPig$.update({ name: pig.name });
-
-        this.addMessage(boardKey, `${pig.name} joined the group`);
 
         observer.next(pig);
       });
@@ -56,17 +54,11 @@ export class PigService {
       });
   }
 
-  retrieveAllMessages$(boardKey: string, dateThreshold: number): Observable<IMessage[]> {
-    return this.af.database.list(`boards/${boardKey}/messages`, { query: { startAt: dateThreshold, orderByChild: 'date-created' } })
-      .map((messages: any[]) => {
-        return messages.map((message: any) => {
-          return { key: message.$key, text: message.text, dateCreated: message['date-created'] };
-        });
+  retrieveHasVoted$(boardKey: string, pigKey: string): Observable<boolean> {
+    return this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/has-voted`)
+      .map((hasVoted: any) => {
+        return hasVoted.$value;
       });
-  }
-
-  addMessage(boardKey: string, text: string) {
-    this.af.database.list(`boards/${boardKey}/messages`).push({ 'date-created': new Date().getTime(), text: text });
   }
 
   retrieveScrumMaster$(boardKey: string): Observable<string> {
@@ -74,14 +66,7 @@ export class PigService {
       .map((scrumMaster: any) => {
         return scrumMaster.$value;
       });
-  }
-
-  retrieveHasVoted$(boardKey: string, pigKey: string): Observable<boolean> {
-    return this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/has-voted`)
-      .map((hasVoted: any) => {
-        return hasVoted.$value;
-      });
-  }
+  }  
 
   toggleScrumMaster(boardKey, pigKey) {
       const scrumMaster$ = this.af.database.object(`boards/${boardKey}/scrum-master`);

@@ -19,10 +19,15 @@ export class RegistrationComponent {
 
   url = '';
   pigs: IPig[];
+  hideCreatePigButton = false;
 
   private _boardKey: string;
 
-  constructor(private boarService: BoardService) { }
+  constructor(private boarService: BoardService) {
+    if (environment.production) {
+      this.hideCreatePigButton = true;
+    }
+  }
 
   createPig() {
     window.open(this.url);
@@ -34,3 +39,4 @@ export class RegistrationComponent {
     });
   }
 }
+

@@ -12,6 +12,8 @@ import { Observable  } from 'rxjs/Rx';
 })
 export class BoardComponent {
   boardKey = '';
+  EStatus = EStatus;
+  status: number = -1;
 
   constructor(private route: ActivatedRoute, private boardService: BoardService) {
     this.route.params.subscribe(params => {
@@ -32,7 +34,6 @@ export class BoardComponent {
     });
   }
 
-  // To prevent streams to be subscribed many times in the HTML template
   setWatchers() {
     let previousCount = -1;
     let previousStatus = -1;
@@ -43,11 +44,11 @@ export class BoardComponent {
           this.boardService.setStatus(this.boardKey, EStatus.RESULT);
         }
 
-        if (status !== previousStatus && (status === EStatus.PRE_VOTE || status === EStatus.PRE_REVOTE)) {
+        if (status !== previousStatus && (status === EStatus.PRE_DISCUSSION || status === EStatus.PRE_REVOTE)) {
           this.boardService.prepareVotingRound(this.boardKey, status);
         }
 
-        previousStatus = status;
+        previousStatus = this.status = status;
         previousCount = count;
       });
   }

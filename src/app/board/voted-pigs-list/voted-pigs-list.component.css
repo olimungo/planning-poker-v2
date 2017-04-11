@@ -1,0 +1,11 @@
+.board-voted-pigs-list {
+  margin-top: 7vh;
+}
+
+.board-voted-pigs-list .board-voted-pigs-list-title {
+  font-weight: 300;
+  color: #444;
+  font-size: 3vw;
+  text-align: center;
+  margin-bottom: 4vh;
+}

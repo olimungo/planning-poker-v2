@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Observer } from 'rxjs/Rx';
 
-import { IPig, IMessage, EStatus } from '../core/entities';
+import { IPig, EStatus } from '../core/entities';
 import { PigService } from './pig.service';
 
 @Component({
@@ -15,7 +15,6 @@ export class PigComponent {
   boardKey: string;
   EStatus = EStatus;
   pig: IPig;
-  messages$: Observable<IMessage[]>;
   status: number;
   hasVoted: boolean;
 

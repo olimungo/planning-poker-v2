@@ -1,9 +1,11 @@
-<div>
-    <qr-code [value]="url" [size]="150"></qr-code>
+<div class="board-registration">
+  <div class="board-registration-align-1">
+    <h1>Scan the code to join the session</h1>
+
+    <div>
+      <qr-code [value]="url" [size]="100"></qr-code>
+    </div>
+
+    <button md-raised-button color="primary" (click)="createPig()" *ngIf="!hideCreatePiButton">Create a Pig</button>
+  </div>
 </div>
-
-<div>{{ url }}</div>
-
-<button md-raised-button color="primary" (click)="createPig()">Create a Pig</button>
-
-<core-pigs-list [pigs]="pigs"></core-pigs-list>

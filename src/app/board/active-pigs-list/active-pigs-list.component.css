@@ -1,0 +1,16 @@
+.board-active-pigs-list {
+  background-color: #3b3f51;
+  border-top: solid 1px #bfc1d0;
+  color: #fff;
+  font-weight: 100;
+  font-size: 3.5vw;
+  position: relative;
+  z-index: 20;
+  padding: 2vw 4vw 2vw 2vw;
+}
+.board-active-pigs-list .board-active-pigs-list-title {
+  font-weight: 300;
+  color: #a7abbb;
+  padding: 0 3vw;
+  font-size: 3vw;
+}

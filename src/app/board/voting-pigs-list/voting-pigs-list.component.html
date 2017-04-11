@@ -1,0 +1,5 @@
+<div class="board-voting-pigs-list" *ngIf="pigs?.length > 0">
+  <div class="board-voting-pigs-list-title">Voting pigs</div>
+
+  <core-pigs-list [pigs]="pigs"  allowToDeactivate="true" (deactivate)="deactivate($event)"></core-pigs-list>
+</div>

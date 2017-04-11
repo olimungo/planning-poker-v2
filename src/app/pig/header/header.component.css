@@ -17,6 +17,17 @@
   align-items: center;
 }
 
+.pig-header .pig-header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.pig-header .pig-header-cards {
+  width: 3.7vw;
+  height: 3.7vw;
+  margin-right: 1vw;
+}
+
 .pig-header .pig-name {
   font-size: 2.5vw;
   font-weight: 300;
@@ -47,8 +58,14 @@
   }
   .pig-header .pig-name {
     font-size: .7em;
+    padding: .5em 1em;
   }
   .pig-header .pig-name .fa {
     font-size: 2em;
+  }
+  .pig-header .pig-header-cards {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: .2em;
   }
 }

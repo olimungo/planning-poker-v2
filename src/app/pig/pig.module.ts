@@ -9,7 +9,6 @@ import { CardsDeckComponent } from './cards-deck/cards-deck.component';
 import { CardComponent } from './cards-deck/card/card.component';
 import { HeaderComponent } from './header/header.component';
 import { SubHeaderComponent } from './sub-header/sub-header.component';
-import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   imports: [
@@ -25,8 +24,7 @@ import { MessagesComponent } from './messages/messages.component';
     CardsDeckComponent,
     CardComponent,
     HeaderComponent,
-    SubHeaderComponent,
-    MessagesComponent
+    SubHeaderComponent
   ],
   providers: [
     appRoutingProviders

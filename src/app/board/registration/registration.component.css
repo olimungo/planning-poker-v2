@@ -1,0 +1,18 @@
+.board-registration {
+  margin-top: 7vh;
+}
+
+.board-registration .board-registration-align-1 {
+  text-align: center;
+}
+
+.board-registration h1 {
+  font-weight: 300;
+  color: #444;
+  margin-bottom: 4vh;
+  font-size: 3vw;
+}
+
+.board-registration .board-registration-align-1 button {
+  margin-top: 2vh;
+}

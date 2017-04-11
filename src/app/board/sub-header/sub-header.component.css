@@ -21,16 +21,16 @@
 
 @media screen and (min-width: 550px) {
   .board-sub-header .board-sub-header-state {
-    font-size: 2vw;
+    font-size: 2.3vw;
   }
 }
 @media screen and (min-width: 900px) {
   .board-sub-header {
     padding: 0 1em;
-    height: 4em;
+    height: 3.9em;
   }
   .board-sub-header .board-sub-header-state {
     font-size: 1.2em;
-    width: 10em;
+    width: 8em;
   }
 }

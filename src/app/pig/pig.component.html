@@ -6,6 +6,4 @@
   <div class="pig-content">
     <pig-cards-deck *ngIf="status === EStatus.VOTE && !hasVoted" (choose)="vote($event)"></pig-cards-deck>
   </div>
-
-  <pig-messages [boardKey]="boardKey" [dateCreated]="pig?.dateCreated"></pig-messages>
 </div>
