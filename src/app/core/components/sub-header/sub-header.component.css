@@ -1,0 +1,94 @@
+.core-sub-header {
+  background: #3b3f51;
+  color: rgba(255, 255, 255, .7);
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 0 transparent;
+  position: relative;
+  transition: box-shadow .3s ease;
+  z-index: 10;
+  padding: 0 2vw;
+  height: 8vw;
+  font-weight: 300;
+}
+
+.core-sub-header.core-sub-header-accent-color {
+  background-color: #039be5;
+}
+
+.core-sub-header .core-sub-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.core-sub-header .core-sub-header-state {
+  font-size: 1.5vw;
+  width: 18vw;
+  margin-right: 1em;
+}
+
+.core-sub-header-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.core-sub-header button {
+  border: none;
+  color: rgba(255, 255, 255, .6);
+  cursor: pointer;
+  padding: 1.2vw .3vw;
+  width: 15vw;
+  font-size: 1.2vw;
+  background: none;
+}
+
+.core-sub-header button:hover {
+  background: rgba(0, 0, 0, .2);
+}
+
+.core-sub-header button:active {
+  background: rgba(0, 0, 0, .4);
+}
+
+.core-sub-header .core-scrum-master {
+  display: none;
+}
+
+.core-sub-header .mat-slide-toggle {
+  margin: 0;
+}
+
+@media screen and (min-width: 500px) {
+  .core-sub-header .core-scrum-sm {
+    display: none;
+  }
+  .core-sub-header .core-scrum-master {
+    display: initial;
+  }
+  .core-sub-header .core-sub-header-state {
+    font-size: 2.3vw;
+  }
+  .core-sub-header .core-sub-header-actions button {
+    padding: 1.2vw .3vw;
+    width: 17vw;
+    font-size: 2.3vw;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .core-sub-header {
+    padding: 0 1em;
+    height: 4em;
+  }
+  .core-sub-header .core-sub-header-state {
+    font-size: 1.2em;
+    width: 8em;
+  }
+  .core-sub-header .core-sub-header-actions button {
+    padding: .5em .4em;
+    width: 8em;
+    font-size: 1em;
+  }
+}

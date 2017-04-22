@@ -1,0 +1,12 @@
+<div class="core-pigs-list-modal">
+  <h1 md-dialog-title>Confirmation</h1>
+
+  <md-dialog-content>
+    <div>Has {{ data?.name }} left the room?</div>
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <button md-button color="warn" tabindex="1" (click)="deactivate()">DEACTIVATE</button>
+    <button md-button color="primary" md-dialog-close>CANCEL</button>
+  </md-dialog-actions>
+</div>

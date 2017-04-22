@@ -1,0 +1,127 @@
+.core-pig.core-pig-hide {
+  visibility: hidden;
+}
+
+.core-pig .core-pig-avatar-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.core-pig .core-pig-avatar-box .core-pig-image {
+  border-radius: 50%;
+  width: 7vw;
+  height: 7vw;
+  border-style: solid;
+  border-width: .5vw;
+  border-color: #a8dff6;
+}
+
+.core-pig .core-pig-avatar-box .core-pig-image.core-pig-accent-color {
+  border-color: #ef771b;
+}
+
+.core-pig .core-pig-avatar-box .core-pig-name {
+  background: #a8dff6;
+  color: #0288d1;
+  font-size: 1vw;
+  padding: .3vw .4vw;
+  border-radius: 2px;
+  width: 7vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  position: relative;
+  top: -6px;
+}
+
+.core-pig .core-pig-avatar-box .core-pig-name.core-pig-accent-color {
+  background: #ef771b !important;
+  color: #fff !important;
+}
+
+.core-pig .core-pig-avatar-box .fa {
+  font-size: 7vw;
+  border-style: solid;
+  border-width: .5vw;
+  border-color: #a8dff6;
+  border-radius: 50%;
+  background: #0288d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, .3);
+}
+
+.core-pig .core-pig-avatar-box .fa.core-pig-accent-color {
+  background: #ef771b !important;
+  border-color: #ef771b;
+}
+
+@media screen and (min-width: 700px) {
+  .core-pig .core-pig-avatar-box .core-pig-image {
+    width: 3em;
+    height: 3em;
+    border-width: .2em;
+  }
+  .core-pig .core-pig-avatar-box .core-pig-name {
+    font-size: .7em;
+    padding: .2em .3em;
+    width: 5em;
+  }
+  .core-pig .core-pig-avatar-box .fa {
+    font-size: 3em;
+    border-width: .08em;
+  }
+}
+
+
+/*.core-pig .core-pig-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.core-pig .core-pig-badge {
+  font-size: 1.3vw;
+  background: #ef771b;
+  color: #fff;
+  border-radius: 50%;
+  width: 3vw;
+  height: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 3vw;
+  left: 3vw;
+}
+
+.core-pig .core-pig-badge.hidden {
+  visibility: hidden;
+}
+
+@media screen and (min-width: 900px) {
+  .core-pig .core-pig-tag .fa {
+    font-size: 7em;
+    border: solid .05em #ef771b;
+  }
+  .core-pig .core-pig-avatar {
+    width: 7em;
+    height: 7em;
+    border: solid .4em #ef771b;
+  }
+  .core-pig .core-pig-name {
+    font-size: 1em;
+    padding: .2em .4em;
+    width: 7.5em;
+  }
+  .core-pig .core-pig-badge {
+    font-size: 1em;
+    width: 2em;
+    height: 2em;
+    top: 2.5em;
+    left: 2.5em;
+  }
+}*/

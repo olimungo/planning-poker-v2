@@ -1,0 +1,12 @@
+<div class="core-pig" [class.core-pig-hide]="!name && !gravatarUrl">
+  <div class="core-pig-pause-requested"></div>
+  
+  <div class="core-pig-badge"></div>
+
+  <div class="core-pig-avatar-box">
+    <i class="fa fa-user-circle" [class.core-pig-accent-color]="useAccentColor" *ngIf="!gravatarUrl"></i>
+    <img class="core-pig-image" [src]="gravatarUrl" [class.core-pig-accent-color]="useAccentColor" *ngIf="gravatarUrl">
+
+    <div class="core-pig-name" *ngIf="displayName" [class.core-pig-accent-color]="useAccentColor">{{ name }}</div>
+  </div>
+</div>

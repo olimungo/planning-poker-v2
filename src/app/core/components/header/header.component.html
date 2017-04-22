@@ -1,0 +1,39 @@
+<div class="core-header" [class.core-header-accent-color]="useAccentColor">
+  <div class="core-header-brand">
+    <img class="core-header-cards" src="/assets/svg/cards.svg">
+    <div>Planning poker</div>
+  </div>
+
+  <div class="core-header-box" *ngIf="story">
+    <div class="core-header-main">
+      <div class="core-header-content">
+        <div class="core-header-label">STORY</div>
+        <div class="core-header-value">{{ story }}</div>
+      </div>
+      <div class="core-header-content">
+        <div class="core-header-label">ROUND</div>
+        <div class="core-header-value">{{ round }}</div>
+      </div>
+    </div>
+
+    <div class="core-header-main time">
+      <div class="core-header-content">
+        <div class="core-header-label"><i class="fa fa-clock-o"></i> START</div>
+        <div class="core-header-value">14:03</div>
+      </div>
+
+      <div class="core-header-content">
+        <div class="core-header-label"><i class="fa fa-clock-o"></i> TOTAL</div>
+        <div class="core-header-value">1h25m</div>
+      </div>
+
+      <div class="core-header-content">
+        <div class="core-header-label"><i class="fa fa-clock-o"></i> STORY</div>
+        <div class="core-header-value">2m45s</div>
+      </div>
+    </div>
+  </div>
+
+  <core-pig class="core-header-avatar" (click)="openDialog()" [class.core-header-avatar-hide]="!displayAvatar" [name]="pig?.name"
+    [email]="pig?.email" [displayName]="false"></core-pig>
+</div>

@@ -1,0 +1,17 @@
+.core-pigs-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.core-pigs-list core-pig {
+  margin: 0 2vw;
+}
+
+@media screen and (min-width: 900px) {
+  .core-pigs-list core-pig {
+    margin: 0 1em;
+  }
+}

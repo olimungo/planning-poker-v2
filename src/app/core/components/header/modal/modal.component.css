@@ -1,0 +1,17 @@
+.core-header-modal .core-header-modal-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 50vw;
+}
+
+.core-header-modal .core-header-modal-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen and (min-width: 600px) {
+  .core-header-modal .core-header-modal-content {
+    width: 20em;
+    min-width: 20em;
+  }
+}
