@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Observer } from 'rxjs/Rx';
 
-import { IPig, EStatus } from '../core/entities';
+import { IPig, EState } from '../core/entities';
 import { PigService } from './pig.service';
 
 @Component({
@@ -13,9 +13,10 @@ import { PigService } from './pig.service';
 })
 export class PigComponent {
   boardKey: string;
-  EStatus = EStatus;
+  EState = EState;
   pig: IPig;
-  status: number;
+  state: number;
+  scrumMasterKey: string;
   hasVoted: boolean;
 
   constructor(private route: ActivatedRoute, private location: Location, private pigService: PigService) {
@@ -56,8 +57,12 @@ export class PigComponent {
 
   // To prevent streams to be subscribed many times in the HTML template
   setWatchers() {
-    this.pigService.retrieveStatus$(this.boardKey).subscribe(status => {
-      this.status = status;
+    this.pigService.retrieveState$(this.boardKey).subscribe(state => {
+      this.state = state;
+    });
+
+    this.pigService.retrieveScrumMaster$(this.boardKey).subscribe((scrumMasterKey: string) => {
+      this.scrumMasterKey = scrumMasterKey;
     });
 
     this.pigService.retrieveHasVoted$(this.boardKey, this.pig.key).subscribe(hasVoted => {

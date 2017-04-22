@@ -1,2 +1,3 @@
-export * from './pig.interface';
-export * from './status.enum';
+export * from './state/state.enum';
+export * from './pig/pig.interface';
+export * from './pig/pig.class';

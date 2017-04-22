@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { Observable, Observer } from 'rxjs/Rx';
 
-import { IPig, EStatus } from '../core/entities';
+import { IPig, Pig, EState } from '../core/entities';
 
 @Injectable()
 export class PigService {
@@ -10,12 +10,12 @@ export class PigService {
 
   createPig$(boardKey: string): Observable<IPig> {
     return Observable.create((observer: Observer<IPig>) => {
-      const pigs$ = this.af.database.list(`boards/${boardKey}/pigs`, { query: { orderByChild: 'date-created' } });
+      const pigs$ = this.af.database.list(`boards/${boardKey}/pigs`, { query: { orderByChild: 'dateCreated' } });
       const dateCreated = new Date().getTime();
-      const newPig$ = pigs$.push({ 'date-created': dateCreated, 'is-active': true });
+      const newPig$ = pigs$.push({ 'dateCreated': dateCreated, 'isActive': true });
       const pig: IPig = { key: newPig$.ref.key, dateCreated: dateCreated };
 
-      // Retrieve the new inserted pig in the ordered by created_date list, in order to assign a counter to the new pig.
+      // Retrieve the new inserted pig in the "ordered by dateCreated" list so to assign a counter to the new pig.
       pigs$.take(1).subscribe((pigs: any[]) => {
         const pigNum = pigs.reduce((num, aPig, index) => {
           return num === -1 ? aPig.$key === newPig$.ref.key ? index + 1 : -1 : num;
@@ -30,77 +30,51 @@ export class PigService {
     });
   }
 
-  retrievePig$(boardKey, pigKey: string): Observable<IPig> {
+  retrievePig$(boardKey: string, pigKey: string): Observable<IPig> {
     let result: IPig = null;
 
     return this.af.database.object(`boards/${boardKey}/pigs/${pigKey}`)
       .take(1)
       .map((pig: any) => {
         if (pig.$exists()) {
-          result = { key: pig.$key, name: pig.name, dateCreated: pig['date-created'] };
-          this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/is-active`).set(true);
+          result = new Pig(pig);
+
+          this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/isActive`).set(true);
         }
 
-        return result;
-      });
-  }
-
-  retrieveAllPigs$(boardKey: string): Observable<IPig[]> {
-    return this.af.database.list(`boards/${boardKey}/pigs`)
-      .map((pigs: any[]) => {
-        return pigs.map((pig: any) => {
-          return { key: pig.$key, name: pig.name, dateCreated: pig['date-created'] };
-        });
+        return new Pig(pig);
       });
   }
 
   retrieveHasVoted$(boardKey: string, pigKey: string): Observable<boolean> {
-    return this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/has-voted`)
+    return this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/hasVoted`)
       .map((hasVoted: any) => {
         return hasVoted.$value;
       });
   }
 
   retrieveScrumMaster$(boardKey: string): Observable<string> {
-    return this.af.database.object(`boards/${boardKey}/scrum-master`)
+    return this.af.database.object(`boards/${boardKey}/scrumMaster`)
       .map((scrumMaster: any) => {
         return scrumMaster.$value;
       });
-  }  
-
-  toggleScrumMaster(boardKey, pigKey) {
-      const scrumMaster$ = this.af.database.object(`boards/${boardKey}/scrum-master`);
-
-      scrumMaster$.take(1).subscribe((scrumMaster: any) => {
-        if (scrumMaster.$value) {
-          if (scrumMaster.$value === pigKey) {
-            scrumMaster$.set(null);
-          }
-        } else {
-          scrumMaster$.set(pigKey);
-        }
-      });
   }
 
-  retrieveStatus$(boardKey): Observable<number> {
-    return this.af.database.object(`boards/${boardKey}/status`)
-      .map((status: any) => {
-        if (!status.$value) {
-          return EStatus.REGISTRATION;
+  retrieveState$(boardKey: string): Observable<number> {
+    return this.af.database.object(`boards/${boardKey}/state`)
+      .map((state: any) => {
+        if (!state.$value) {
+          return EState.REGISTRATION;
         } else {
-          return status.$value;
+          return state.$value;
         }
       });
-  }
-
-  setStatus(boardKey: string, status: number) {
-    this.af.database.object(`boards/${boardKey}/status`).set(status);
   }
 
   vote(boardKey: string, pigKey: string, label: string) {
-    this.af.database.object(`boards/${boardKey}/current-story`)
+    this.af.database.object(`boards/${boardKey}/currentStory`)
       .switchMap((currentStory: any) => {
-        return this.af.database.object(`boards/${boardKey}/current-round`)
+        return this.af.database.object(`boards/${boardKey}/currentRound`)
           .map((currentRound: any) => {
             return { story: currentStory.$value, round: currentRound.$value };
           });
@@ -108,7 +82,22 @@ export class PigService {
       .take(1)
       .subscribe((current: any) => {
         this.af.database.object(`boards/${boardKey}/votes/${current.story}/${current.round}/${pigKey}`).set(label);
-        this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/has-voted`).set(true);
+        this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/hasVoted`).set(true);
+      });
+  }
+
+  setResultForStory(boardKey: string, label: string) {
+    this.af.database.object(`boards/${boardKey}/currentStory`)
+      .switchMap((currentStory: any) => {
+        return this.af.database.object(`boards/${boardKey}/currentRound`)
+          .map((currentRound: any) => {
+            return { story: currentStory.$value, round: currentRound.$value };
+          });
+      })
+      .take(1)
+      .subscribe((current: any) => {
+        this.af.database.object(`boards/${boardKey}/results/${current.story}`).set(label);
+        this.af.database.object(`boards/${boardKey}/state`).set(EState.PRE_DISCUSSION);
       });
   }
 }

@@ -1,5 +1,6 @@
 <div class="board-voted-pigs-list" *ngIf="pigs?.length > 0">
-  <div class="board-voted-pigs-list-title">HAS VOTED !</div>
+  <div class="board-voted-pigs-list-title" *ngIf="pigs?.length === 1">HAS VOTED !</div>
+  <div class="board-voted-pigs-list-title" *ngIf="pigs?.length > 1">HAVE VOTED !</div>
 
   <core-pigs-list [pigs]="pigs"></core-pigs-list>
 </div>

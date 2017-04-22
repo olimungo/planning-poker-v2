@@ -1,13 +1,14 @@
 <div class="board">
-  <board-header></board-header>
+  <core-header [boardKey]="boardKey"></core-header>
 
-  <board-sub-header [boardKey]="boardKey"></board-sub-header>
+  <core-sub-header [boardKey]="boardKey"></core-sub-header>
 
   <div class="board-content">
-    <board-registration [boardKey]="boardKey" *ngIf="status == EStatus.REGISTRATION || status == EStatus.DISCUSSION"></board-registration>
-    <board-voted-pigs-list [boardKey]="boardKey" *ngIf="status == EStatus.VOTE"></board-voted-pigs-list>
+    <board-registration [boardKey]="boardKey" *ngIf="state == EState.REGISTRATION || state == EState.DISCUSSION"></board-registration>
+    <board-voted-pigs-list [boardKey]="boardKey" *ngIf="state == EState.VOTE"></board-voted-pigs-list>
+    <board-result [boardKey]="boardKey" *ngIf="state == EState.RESULT"></board-result>
   </div>
 
-  <board-active-pigs-list [boardKey]="boardKey" *ngIf="status == EStatus.REGISTRATION"></board-active-pigs-list>
-  <board-voting-pigs-list [boardKey]="boardKey" *ngIf="status == EStatus.DISCUSSION || status == EStatus.VOTE"></board-voting-pigs-list>
+  <board-active-pigs-list [boardKey]="boardKey" *ngIf="state == EState.REGISTRATION"></board-active-pigs-list>
+  <board-voting-pigs-list [boardKey]="boardKey" *ngIf="state == EState.DISCUSSION || state == EState.VOTE"></board-voting-pigs-list>
 </div>

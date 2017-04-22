@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule, MdDialogModule } from '@angular/material';
+import { CoreModule } from '../core/core.module';
 
 import { routing, appRoutingProviders } from './pig.routing';
 
 import { PigComponent } from './pig.component';
 import { CardsDeckComponent } from './cards-deck/cards-deck.component';
 import { CardComponent } from './cards-deck/card/card.component';
-import { HeaderComponent } from './header/header.component';
-import { SubHeaderComponent } from './sub-header/sub-header.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    BrowserAnimationsModule,
     MaterialModule,
+    MdDialogModule,
+    CoreModule,
     routing
   ],
   exports: [
@@ -23,8 +29,7 @@ import { SubHeaderComponent } from './sub-header/sub-header.component';
     PigComponent,
     CardsDeckComponent,
     CardComponent,
-    HeaderComponent,
-    SubHeaderComponent
+    ResultComponent,
   ],
   providers: [
     appRoutingProviders

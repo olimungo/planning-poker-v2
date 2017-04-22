@@ -32,7 +32,7 @@ const CONFIG = {
     MaterialModule,
     AngularFireModule.initializeApp(CONFIG),
     routing,
-    CoreModule,
+    CoreModule.forRoot(),
     BoardModule,
     PigModule
   ],

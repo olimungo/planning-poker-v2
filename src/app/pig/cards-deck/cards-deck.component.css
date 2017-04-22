@@ -2,11 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
-.pig-cards {
+.pig-cards-deck-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 40em;
+  width: 65vw;
+}
+
+@media screen and (min-width: 900px) {
+  .pig-cards-deck .pig-cards-deck-content {
+    font-size: 1.2em;
+    width: 40em;
+  }
 }

@@ -3,14 +3,24 @@
   border-top: solid 1px #bfc1d0;
   color: #fff;
   font-weight: 100;
-  font-size: 3.5vw;
   position: relative;
   z-index: 20;
-  padding: 2vw 4vw 2vw 2vw;
+  padding: 2vw 0 4vw 0;
 }
+
 .board-active-pigs-list .board-active-pigs-list-title {
   font-weight: 300;
   color: #a7abbb;
-  padding: 0 3vw;
-  font-size: 3vw;
+  padding-left: 2vw;
+  font-size: 2.7vw;
+}
+
+@media screen and (min-width: 900px) {
+  .board-active-pigs-list {
+    padding: 1em 0 2em 0;
+  }
+  .board-active-pigs-list .board-active-pigs-list-title {
+    padding-left: 1em;
+    font-size: 1.6em;
+  }
 }

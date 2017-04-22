@@ -11,7 +11,7 @@ import { BoardService } from '../board.service';
 export class ActivePigsListComponent {
   @Input() set boardKey(value: string) {
     this._boardKey = value;
-    this.retrieveAllPigs();
+    this.retrieveActivePigs();
   }
 
   pigs: IPig[];
@@ -20,10 +20,9 @@ export class ActivePigsListComponent {
 
   constructor(private boarService: BoardService) { }
 
-  retrieveAllPigs() {
+  retrieveActivePigs() {
     this.boarService.retrieveAllPigs$(this._boardKey).subscribe(pigs => {
       this.pigs = pigs.filter(pig => pig.isActive);
     });
   }
-
 }

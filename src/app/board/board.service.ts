@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { Observable } from 'rxjs/Rx';
 
-import { IPig, EStatus } from '../core/entities';
+import { IPig, Pig, EState } from '../core/entities';
 
 @Injectable()
 export class BoardService {
@@ -12,18 +12,18 @@ export class BoardService {
     return this.af.database.list('boards').$ref.ref.push().key;
   }
 
-  retrieveStatus$(boardKey): Observable<number> {
-    return this.af.database.object(`boards/${boardKey}/status`)
-      .map((status: any) => {
-        if (!status.$value) {
-          return EStatus.REGISTRATION;
+  retrieveState$(boardKey: string): Observable<number> {
+    return this.af.database.object(`boards/${boardKey}/state`)
+      .map((state: any) => {
+        if (!state.$value) {
+          return EState.REGISTRATION;
         } else {
-          return status.$value;
+          return state.$value;
         }
       });
   }
 
-  checkBoardExists$(boardKey): Observable<boolean> {
+  checkBoardExists$(boardKey: string): Observable<boolean> {
     return this.af.database.object(`boards/${boardKey}`)
       .take(1)
       .map((board: any) => {
@@ -31,11 +31,11 @@ export class BoardService {
       });
   }
 
-  prepareVotingRound(boardKey: string, status: number) {
-    const currentRound$ = this.af.database.object(`boards/${boardKey}/current-round`);
-    const currentStory$ = this.af.database.object(`boards/${boardKey}/current-story`);
+  prepareVotingRound(boardKey: string, state: number) {
+    const currentRound$ = this.af.database.object(`boards/${boardKey}/currentRound`);
+    const currentStory$ = this.af.database.object(`boards/${boardKey}/currentStory`);
 
-    if (status === EStatus.PRE_DISCUSSION) {
+    if (state === EState.PRE_DISCUSSION) {
       currentStory$.take(1).subscribe((currentStory: any) => {
         if (currentStory.$value) {
           currentStory$.set(++currentStory.$value);
@@ -47,7 +47,7 @@ export class BoardService {
       });
     }
 
-    if (status === EStatus.PRE_REVOTE) {
+    if (state === EState.PRE_REVOTE) {
       currentRound$.take(1).subscribe((currentRound: any) => {
         currentRound$.set(++currentRound.$value);
       });
@@ -57,41 +57,50 @@ export class BoardService {
       .take(1)
       .subscribe((pigs: any[]) => {
         pigs.map((pig: any) => {
-          this.af.database.object(`boards/${boardKey}/pigs/${pig.$key}/has-voted`).set(false);
+          this.af.database.object(`boards/${boardKey}/pigs/${pig.$key}/hasVoted`).set(false);
         });
 
       });
 
-    if (status === EStatus.PRE_REVOTE) {
-      this.af.database.object(`boards/${boardKey}/status`).set(EStatus.VOTE);
+    if (state === EState.PRE_REVOTE) {
+      this.af.database.object(`boards/${boardKey}/state`).set(EState.VOTE);
     }
 
-    if (status === EStatus.PRE_DISCUSSION) {
-      this.af.database.object(`boards/${boardKey}/status`).set(EStatus.DISCUSSION);
+    if (state === EState.PRE_DISCUSSION) {
+      this.af.database.object(`boards/${boardKey}/state`).set(EState.DISCUSSION);
     }
   }
 
-  retrieveCountVotedPigss$(boardKey): Observable<number> {
-    return this.af.database.list(`boards/${boardKey}/pigs`, { query: { orderByChild: 'has-voted', equalTo: false } })
+  retrieveCountVotedPigs$(boardKey): Observable<number> {
+    return this.af.database.list(`boards/${boardKey}/pigs`, { query: { orderByChild: 'hasVoted', equalTo: false } })
       .map((pigs: any[]) => {
-        return pigs.filter(pig => pig['is-active']).length;
+        return pigs.filter(pig => pig['isActive']).length;
       });
   }
 
-  setStatus(boardKey: string, status: number) {
-    this.af.database.object(`boards/${boardKey}/status`).set(status);
+  setState(boardKey: string, state: number) {
+    this.af.database.object(`boards/${boardKey}/state`).set(state);
   }
 
   retrieveAllPigs$(boardKey: string): Observable<IPig[]> {
     return this.af.database.list(`boards/${boardKey}/pigs`)
       .map((pigs: any[]) => {
         return pigs.map((pig: any) => {
-          return { key: pig.$key, name: pig.name, email: pig.email, hasVoted: pig['has-voted'], isActive: pig['is-active'] };
+          return new Pig(pig);
         });
       });
   }
 
+  retrieveResult$(boardKey: string): Observable<any[]> {
+    return this.af.database.object(`boards/${boardKey}/currentStory`)
+      .switchMap(currentStory => this.af.database.object(`boards/${boardKey}/currentRound`)
+        .switchMap(currentRound => this.af.database.list(`boards/${boardKey}/votes/${currentStory.$value}/${currentRound.$value}`)
+          .map(votes => votes.map(vote => {
+            return { key: vote.$key, badge: vote.$value };
+          }))));
+  }
+
   deactivatePig(boardKey: string, pigKey: string) {
-    this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/is-active`).set(false);
+    this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/isActive`).set(false);
   }
 }

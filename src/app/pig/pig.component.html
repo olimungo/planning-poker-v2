@@ -1,9 +1,10 @@
 <div class="pig">
-  <pig-header [name]="pig?.name"></pig-header>
+  <core-header [boardKey]="boardKey" [pigKey]="pig?.key" [useAccentColor]="true" [displayAvatar]="true"></core-header>
   
-  <pig-sub-header [boardKey]="boardKey" [pigKey]="pig?.key"></pig-sub-header>
+  <core-sub-header [boardKey]="boardKey" [pigKey]="pig?.key" [useAccentColor]="true" [displayScrumMaster]="true"></core-sub-header>
 
   <div class="pig-content">
-    <pig-cards-deck *ngIf="status === EStatus.VOTE && !hasVoted" (choose)="vote($event)"></pig-cards-deck>
+    <div class="pig-content-cards-deck"><pig-cards-deck *ngIf="state === EState.VOTE && !hasVoted" (choose)="vote($event)"></pig-cards-deck></div>
+    <pig-result [boardKey]="boardKey" *ngIf="state === EState.RESULT && pig?.key === scrumMasterKey"></pig-result>
   </div>
 </div>

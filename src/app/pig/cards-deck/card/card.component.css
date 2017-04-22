@@ -5,12 +5,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 12vw;
-  height: 17vw;
-  max-width: 5em;
-  max-height: 7em;
+  width: 8vw;
+  height: 12vw;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
-  padding: .5em .6em;
+  padding: 1.3vw;
   background: #fdde5f;
 }
 
@@ -18,8 +16,8 @@
   opacity: .6;
 }
 
-.pig-card-content {
-  font-size: 1.5vw;
+.pig-card .pig-card-content {
+  font-size: 2vw;
   width: 100%;
   height: 100%;
   display: flex;
@@ -37,7 +35,12 @@
 }
 
 @media screen and (min-width: 900px) {
-  .pig-card-content {
-    font-size: 2.2em;
+  .pig-card {
+    width: 4em;
+    height: 6em;
+    padding: .5em;
+  }
+  .pig-card .pig-card-content {
+    font-size: 1.2em;
   }
 }

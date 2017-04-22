@@ -1,32 +1,46 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule, MdDialogModule } from '@angular/material';
-
-import { CoreGridComponent } from './grid/grid.component';
-import { PigsListComponent } from './pigs-list/pigs-list.component';
-import { PigComponent } from './pigs-list/pig/pig.component';
-import { ModalComponent } from './pigs-list/modal/modal.component';
+import {
+  CoreHeaderComponent, CoreSubHeaderComponent, CorePigComponent, CorePigsListComponent,
+  CoreHeaderModalComponent, CorePigsListModalComponent
+} from '.';
+import { CoreService } from './core.service';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
     MdDialogModule
   ],
   exports: [
-    CoreGridComponent,
-    PigsListComponent
+    CoreHeaderComponent,
+    CoreSubHeaderComponent,
+    CorePigComponent,
+    CorePigsListComponent
   ],
   declarations: [
-    CoreGridComponent,
-    PigsListComponent,
-    PigComponent,
-    ModalComponent
+    CoreHeaderComponent,
+    CoreSubHeaderComponent,
+    CorePigComponent,
+    CorePigsListComponent,
+    CoreHeaderModalComponent,
+    CorePigsListModalComponent
   ],
   entryComponents: [
-    ModalComponent
+    CoreHeaderModalComponent,
+    CorePigsListModalComponent
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [ CoreService ]
+    };
+  }
+}
