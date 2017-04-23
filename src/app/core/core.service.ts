@@ -24,7 +24,7 @@ export class CoreService {
   }
 
   retrieveState$(boardKey: string): Observable<number> {
-    return this.af.database.object(`boards/${boardKey}/state`)
+    return this.af.database.object(`boards/${boardKey}/workflow/state`)
       .map((state: any) => {
         if (!state.$value) {
           return EState.REGISTRATION;
@@ -32,6 +32,10 @@ export class CoreService {
           return state.$value;
         }
       });
+  }
+
+  setState(boardKey: string, state: number) {
+    this.af.database.object(`boards/${boardKey}/workflow/state`).set(state);
   }
 
   retrieveScrumMaster$(boardKey: string): Observable<string> {
@@ -62,17 +66,33 @@ export class CoreService {
       });
   }
 
-  setState(boardKey: string, state: number) {
-    this.af.database.object(`boards/${boardKey}/state`).set(state);
+  retrieveStep$(boardKey: string): Observable<any> {
+    return this.af.database.object(`boards/${boardKey}/workflow/step`)
+      .map((step: any) => {
+        return { story: step.story, round: step.round };
+      });
   }
 
-  retrieveStoryAndRound$(boardKey: string): Observable<any> {
-    return this.af.database.object(`boards/${boardKey}/currentStory`)
-      .switchMap((currentStory: any) => {
-        return this.af.database.object(`boards/${boardKey}/currentRound`)
-          .map((currentRound: any) => {
-            return { story: currentStory.$value, round: currentRound.$value };
-          });
+  retrieveStart$(boardKey: string): Observable<number> {
+    return this.af.database.object(`boards/${boardKey}/workflow/time/start`)
+      .map((start: any) => {
+        return start.$value;
+      });
+  }
+
+  retrieveTime$(boardKey: string): Observable<any> {
+    return this.af.database.object(`boards/${boardKey}/workflow`)
+      .map((workflow: any) => {
+        const result: any = {};
+
+        if (workflow.$exists()) {
+          result.time = workflow.time ? workflow.time : null;
+          result.stories = workflow.stories ? workflow.stories : null;
+          result.step = workflow.step ? workflow.step : null;
+          result.state = workflow.state ? workflow.state : null;
+        }
+
+        return result;
       });
   }
 }

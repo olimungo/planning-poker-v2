@@ -8,6 +8,7 @@ import {
   CoreHeaderModalComponent, CorePigsListModalComponent
 } from '.';
 import { CoreService } from './core.service';
+import { WorkflowOverviewComponent } from './components/workflow-overview/workflow-overview.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { CoreService } from './core.service';
     CorePigComponent,
     CorePigsListComponent,
     CoreHeaderModalComponent,
-    CorePigsListModalComponent
+    CorePigsListModalComponent,
+    WorkflowOverviewComponent
   ],
   entryComponents: [
     CoreHeaderModalComponent,

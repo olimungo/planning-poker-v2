@@ -30,11 +30,16 @@ export class RegistrationComponent {
   }
 
   createPig() {
-    window.open(this.url);
+    // window.open(this.url);
+
+    const subject = 'Planning poker URL';
+    const message = this.url;
+
+    window.open('mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message));
   }
 
   retrieveAllPigs() {
-    this.boarService.retrieveAllPigs$(this._boardKey).subscribe(pigs =>  {
+    this.boarService.retrieveAllPigs$(this._boardKey).subscribe(pigs => {
       this.pigs = pigs.filter(pig => pig.isActive);
     });
   }

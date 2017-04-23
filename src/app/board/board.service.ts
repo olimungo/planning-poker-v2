@@ -2,25 +2,22 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { Observable } from 'rxjs/Rx';
 
-import { IPig, Pig, EState } from '../core/entities';
+import { IPig, Pig, EState, CoreService } from '../core';
 
 @Injectable()
 export class BoardService {
-  constructor(private af: AngularFire) { }
+  constructor(private af: AngularFire, private coreService: CoreService) { }
 
   getNewBoardId(): string {
     return this.af.database.list('boards').$ref.ref.push().key;
   }
 
   retrieveState$(boardKey: string): Observable<number> {
-    return this.af.database.object(`boards/${boardKey}/state`)
-      .map((state: any) => {
-        if (!state.$value) {
-          return EState.REGISTRATION;
-        } else {
-          return state.$value;
-        }
-      });
+    return this.coreService.retrieveState$(boardKey);
+  }
+
+  setState(boardKey: string, state: number) {
+    return this.coreService.setState(boardKey, state);
   }
 
   checkBoardExists$(boardKey: string): Observable<boolean> {
@@ -32,24 +29,30 @@ export class BoardService {
   }
 
   prepareVotingRound(boardKey: string, state: number) {
-    const currentRound$ = this.af.database.object(`boards/${boardKey}/currentRound`);
-    const currentStory$ = this.af.database.object(`boards/${boardKey}/currentStory`);
+    const step$ = this.af.database.object(`boards/${boardKey}/workflow/step`);
 
     if (state === EState.PRE_DISCUSSION) {
-      currentStory$.take(1).subscribe((currentStory: any) => {
-        if (currentStory.$value) {
-          currentStory$.set(++currentStory.$value);
+      step$.take(1).subscribe((step: any) => {
+        const now = new Date().getTime();
+        let story = 1;
+
+        if (step.$exists()) {
+          this.af.database.object(`boards/${boardKey}/workflow/stories/${step.story}/end`).set(now);
+          story = step.story + 1;
         } else {
-          currentStory$.set(1);
+          this.af.database.object(`boards/${boardKey}/workflow/time/start`).set(now);
         }
 
-        currentRound$.set(1);
+        this.af.database.object(`boards/${boardKey}/workflow/stories/${story}/start`).set(now);
+        this.af.database.object(`boards/${boardKey}/workflow/time/story`).set(now);
+
+        step$.update({ story: story, round: 1 });
       });
     }
 
     if (state === EState.PRE_REVOTE) {
-      currentRound$.take(1).subscribe((currentRound: any) => {
-        currentRound$.set(++currentRound.$value);
+      step$.take(1).subscribe((workflow: any) => {
+        step$.update({ story: workflow.story, round: workflow.round + 1 });
       });
     }
 
@@ -63,11 +66,11 @@ export class BoardService {
       });
 
     if (state === EState.PRE_REVOTE) {
-      this.af.database.object(`boards/${boardKey}/state`).set(EState.VOTE);
+      this.setState(boardKey, EState.VOTE);
     }
 
     if (state === EState.PRE_DISCUSSION) {
-      this.af.database.object(`boards/${boardKey}/state`).set(EState.DISCUSSION);
+      this.setState(boardKey, EState.DISCUSSION);
     }
   }
 
@@ -76,10 +79,6 @@ export class BoardService {
       .map((pigs: any[]) => {
         return pigs.filter(pig => pig['isActive']).length;
       });
-  }
-
-  setState(boardKey: string, state: number) {
-    this.af.database.object(`boards/${boardKey}/state`).set(state);
   }
 
   retrieveAllPigs$(boardKey: string): Observable<IPig[]> {
@@ -91,16 +90,40 @@ export class BoardService {
       });
   }
 
-  retrieveResult$(boardKey: string): Observable<any[]> {
-    return this.af.database.object(`boards/${boardKey}/currentStory`)
-      .switchMap(currentStory => this.af.database.object(`boards/${boardKey}/currentRound`)
-        .switchMap(currentRound => this.af.database.list(`boards/${boardKey}/votes/${currentStory.$value}/${currentRound.$value}`)
-          .map(votes => votes.map(vote => {
-            return { key: vote.$key, badge: vote.$value };
-          }))));
-  }
-
   deactivatePig(boardKey: string, pigKey: string) {
     this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/isActive`).set(false);
+  }
+
+  finalise(boardKey: string) {
+    this.af.database.object(`boards/${boardKey}/workflow/time/end`).set(new Date().getTime());
+    this.setState(boardKey, EState.FINAL_RESULT);
+  }
+
+  pause(boardKey: string) {
+    this.af.database.object(`boards/${boardKey}/workflow/time/pause/since`).set(new Date().getTime());
+    this.setState(boardKey, EState.PAUSE);
+  }
+
+  unpause(boardKey: string) {
+    this.af.database.object(`boards/${boardKey}/workflow`).take(1).subscribe(workflow => {
+      let duration = workflow.time.pause.duration ? workflow.time.pause.duration : 0;
+      const since = workflow.time.pause.since ? workflow.time.pause.since : 0;
+      const ellapsed = new Date().getTime() - since;
+
+      this.af.database.object(`boards/${boardKey}/workflow/time/pause`).set({ duration : duration + ellapsed, since: null });
+
+      duration = workflow.stories[workflow.step.story].pauseDuration ? workflow.stories[workflow.step.story].pauseDuration : 0;
+      this.af.database.object(`boards/${boardKey}/workflow/stories/${workflow.step.story}/pauseDuration`).set(duration + ellapsed);
+
+      this.setState(boardKey, EState.DISCUSSION);
+    });
+  }
+
+  retrieveResult$(boardKey: string): Observable<any[]> {
+    return this.af.database.object(`boards/${boardKey}/workflow/step`)
+      .switchMap(step => this.af.database.list(`boards/${boardKey}/workflow/votes/${step.story}/${step.round}`)
+        .map(votes => votes.map(vote => {
+          return { key: vote.$key, badge: vote.$value };
+        })));
   }
 }

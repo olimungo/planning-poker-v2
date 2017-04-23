@@ -10,7 +10,7 @@ export class CorePigComponent {
   @Input() useAccentColor = false;
   @Input() displayName = true;
   @Input() name: string;
-  @Input() badge: number;
+  @Input() badge: string;
   @Input() hasRequestedPause = false;
 
   @Input() set email(value: string) {

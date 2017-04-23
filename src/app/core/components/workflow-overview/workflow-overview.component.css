@@ -1,0 +1,61 @@
+.core-workflow-overview .core-wkfl-box {
+  display: flex;
+  align-items: center;
+  font-size: .5vw;
+}
+
+.core-workflow-overview .core-wkfl-box .core-wkfl-main {
+  display: flex;
+  background: #474b5a;
+  padding: .8vw .6vw;
+  border-radius: 2px;
+  margin: 0 .4vw;
+}
+
+.core-workflow-overview .core-wkfl-box .core-wkfl-main.core-wkfl-main-accent-color {
+  background: #0377b7;
+}
+
+.core-workflow-overview .core-wkfl-box .core-wkfl-main .core-wkfl-content {
+  padding: 0 1vw;
+}
+
+.core-workflow-overview .core-wkfl-box .core-wkfl-main .core-wkfl-content .core-wkfl-label {
+  font-weight: 400;
+  margin-bottom: .6vw;
+}
+
+.core-workflow-overview .core-wkfl-box .core-wkfl-main .core-wkfl-content .core-wkfl-value {
+  color: #b6bac5;
+  font-size: .5vw;
+  font-weight: 400;
+}
+
+.core-workflow-overview .core-wkfl-box .core-wkfl-main .core-wkfl-content .core-wkfl-value.core-wkfl-value-accent-color {
+  color: #98d6f4;
+}
+
+@media screen and (max-width: 500px) {
+  .core-workflow-overview .core-wkfl-box .core-wkfl-main.time {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .core-workflow-overview .core-wkfl-box {
+    font-size: .4em;
+  }
+  .core-workflow-overview .core-wkfl-box .core-wkfl-main {
+    padding: .6em .6em;
+    margin: 0 .8em;
+  }
+  .core-workflow-overview .core-wkfl-box .core-wkfl-main .core-wkfl-content {
+    padding: 0 .6em;
+  }
+  .core-workflow-overview .core-wkfl-box .core-wkfl-main .core-wkfl-content .core-wkfl-label {
+    margin-bottom: .4em;
+  }
+  .core-workflow-overview .core-wkfl-box .core-wkfl-main .core-wkfl-content .core-wkfl-value {
+    font-size: 1em;
+  }
+}

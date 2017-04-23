@@ -23,10 +23,10 @@ export class ResultComponent {
   retrieveVotes() {
     this.boarService.retrieveAllPigs$(this._boardKey)
       .map(pigs => pigs.filter(pig => pig.isActive).filter(pig => pig.hasVoted))
-      .switchMap(pigs => this.boarService.retrieveResult$(this._boardKey)
+      .switchMap(activeAndVotedPigs => this.boarService.retrieveResult$(this._boardKey)
         .map(votes => {
           return votes.map(vote => {
-            return pigs.filter(pig => {
+            return activeAndVotedPigs.filter(pig => {
               if (pig.key === vote.key) {
                 pig.badge = vote.badge;
                 return pig;

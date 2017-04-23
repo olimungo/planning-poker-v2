@@ -1,0 +1,55 @@
+<div class="core-workflow-overview" *ngIf="time.start">
+  <div class="core-wkfl-box" *ngIf="!time.end">
+    <div class="core-wkfl-main" [class.core-wkfl-main-accent-color]="useAccentColor">
+      <div class="core-wkfl-content">
+        <div class="core-wkfl-label">STORY</div>
+        <div class="core-wkfl-value" [class.core-wkfl-value-accent-color]="useAccentColor">{{ story }}</div>
+      </div>
+      <div class="core-wkfl-content">
+        <div class="core-wkfl-label">ROUND</div>
+        <div class="core-wkfl-value" [class.core-wkfl-value-accent-color]="useAccentColor">{{ round }}</div>
+      </div>
+    </div>
+
+    <div class="core-wkfl-main time" [class.core-wkfl-main-accent-color]="useAccentColor">
+      <div class="core-wkfl-content">
+        <div class="core-wkfl-label">START</div>
+        <div class="core-wkfl-value" [class.core-wkfl-value-accent-color]="useAccentColor">{{ time.start }}</div>
+      </div>
+
+      <div class="core-wkfl-content">
+        <div class="core-wkfl-label">TOTAL</div>
+        <div class="core-wkfl-value" [class.core-wkfl-value-accent-color]="useAccentColor">{{ time.duration}}</div>
+      </div>
+
+      <div class="core-wkfl-content">
+        <div class="core-wkfl-label">STORY</div>
+        <div class="core-wkfl-value" [class.core-wkfl-value-accent-color]="useAccentColor">{{ time.storyDuration }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="core-wkfl-box" *ngIf="time.end">
+    <div class="core-wkfl-main" [class.core-wkfl-main-accent-color]="useAccentColor">
+      <div class="core-wkfl-content">
+        <div class="core-wkfl-label">START</div>
+        <div class="core-wkfl-value" [class.core-wkfl-value-accent-color]="useAccentColor">{{ time.start }}</div>
+      </div>
+
+      <div class="core-wkfl-content">
+        <div class="core-wkfl-label">END</div>
+        <div class="core-wkfl-value" [class.core-wkfl-value-accent-color]="useAccentColor">{{ time.end}}</div>
+      </div>
+
+      <div class="core-wkfl-content">
+        <div class="core-wkfl-label">DURATION</div>
+        <div class="core-wkfl-value" [class.core-wkfl-value-accent-color]="useAccentColor">{{ time.duration }}</div>
+      </div>
+
+      <div class="core-wkfl-content">
+        <div class="core-wkfl-label">PAUSES</div>
+        <div class="core-wkfl-value" [class.core-wkfl-value-accent-color]="useAccentColor">{{ time.totalPause }}</div>
+      </div>
+    </div>
+  </div>
+</div>

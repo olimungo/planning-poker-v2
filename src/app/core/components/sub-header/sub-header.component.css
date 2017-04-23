@@ -1,5 +1,5 @@
 .core-sub-header {
-  background: #3b3f51;
+  background: #505569;
   color: rgba(255, 255, 255, .7);
   display: flex;
   flex: 0 0 auto;
@@ -40,7 +40,7 @@
   cursor: pointer;
   padding: 1.2vw .3vw;
   width: 15vw;
-  font-size: 1.2vw;
+  font-size: 1vw;
   background: none;
 }
 

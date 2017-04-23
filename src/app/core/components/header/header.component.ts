@@ -4,7 +4,7 @@ import { MdDialog } from '@angular/material';
 import { CoreHeaderModalComponent } from '..';
 import { CoreService } from '../../core.service';
 
-import { IPig } from '../../entities';
+import { IPig } from '../..';
 
 @Component({
   selector: 'core-header',
@@ -14,6 +14,7 @@ import { IPig } from '../../entities';
 export class CoreHeaderComponent {
   @Input() useAccentColor = false;
   @Input() displayAvatar = false;
+  @Input() displayResetScrumMaster = false;
 
   @Input() set boardKey(value: string) {
     this._boardKey = value;
@@ -51,9 +52,9 @@ export class CoreHeaderComponent {
 
   setWatchers() {
     if (this._boardKey && (this._pigKey || !this.displayAvatar)) {
-      this.coreService.retrieveStoryAndRound$(this._boardKey).subscribe(result => {
-        this.story = result.story;
-        this.round = result.round;
+      this.coreService.retrieveStep$(this._boardKey).subscribe(step => {
+        this.story = step.story;
+        this.round = step.round;
       });
 
       if (this._pigKey) {
@@ -62,6 +63,10 @@ export class CoreHeaderComponent {
         });
       }
     }
+  }
+
+  resetScrumMaster() {
+    console.log('toto')
   }
 }
 

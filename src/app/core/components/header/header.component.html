@@ -4,36 +4,10 @@
     <div>Planning poker</div>
   </div>
 
-  <div class="core-header-box" *ngIf="story">
-    <div class="core-header-main">
-      <div class="core-header-content">
-        <div class="core-header-label">STORY</div>
-        <div class="core-header-value">{{ story }}</div>
-      </div>
-      <div class="core-header-content">
-        <div class="core-header-label">ROUND</div>
-        <div class="core-header-value">{{ round }}</div>
-      </div>
-    </div>
+  <core-workflow-overview [boardKey]="_boardKey" [useAccentColor]="useAccentColor"></core-workflow-overview>
 
-    <div class="core-header-main time">
-      <div class="core-header-content">
-        <div class="core-header-label"><i class="fa fa-clock-o"></i> START</div>
-        <div class="core-header-value">14:03</div>
-      </div>
-
-      <div class="core-header-content">
-        <div class="core-header-label"><i class="fa fa-clock-o"></i> TOTAL</div>
-        <div class="core-header-value">1h25m</div>
-      </div>
-
-      <div class="core-header-content">
-        <div class="core-header-label"><i class="fa fa-clock-o"></i> STORY</div>
-        <div class="core-header-value">2m45s</div>
-      </div>
-    </div>
-  </div>
-
-  <core-pig class="core-header-avatar" (click)="openDialog()" [class.core-header-avatar-hide]="!displayAvatar" [name]="pig?.name"
+  <core-pig class="core-header-avatar" (click)="openDialog()" [class.hide]="!displayAvatar" [name]="pig?.name"
     [email]="pig?.email" [displayName]="false"></core-pig>
+
+  <div class="core-header-menu" [class.hide]="displayAvatar" (click)="resetScrumMaster()"><i class="fa fa-ellipsis-v"></i></div>
 </div>

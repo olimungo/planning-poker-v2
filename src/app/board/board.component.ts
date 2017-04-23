@@ -44,8 +44,23 @@ export class BoardComponent {
           this.boardService.setState(this.boardKey, EState.RESULT);
         }
 
-        if (state !== previousState && (state === EState.PRE_DISCUSSION || state === EState.PRE_REVOTE)) {
-          this.boardService.prepareVotingRound(this.boardKey, state);
+        if (state !== previousState) {
+          if (state === EState.PRE_DISCUSSION || state === EState.PRE_REVOTE) {
+            this.boardService.prepareVotingRound(this.boardKey, state);
+          }
+
+          if (state === EState.PRE_FINAL_RESULT) {
+            console.log('pre final')
+            this.boardService.finalise(this.boardKey);
+          }
+
+          if (state === EState.PRE_PAUSE) {
+            this.boardService.pause(this.boardKey);
+          }
+
+          if (state === EState.UNPAUSE) {
+            this.boardService.unpause(this.boardKey);
+          }
         }
 
         previousState = this.state = state;
