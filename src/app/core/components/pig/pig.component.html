@@ -1,7 +1,10 @@
 <div class="core-pig" [class.core-pig-hide]="!name && !gravatarUrl">
   <div class="core-pig-pause-requested"></div>
   
-  <div class="core-pig-badge" [class.hidden]="!badge">{{ badge }}</div>
+  <div class="core-pig-badge" [class.hidden]="!badge">
+    <div *ngIf="badge !== 'INF'">{{ badge }}</div>
+    <img class="core-pig-infinity" src="/assets/svg/infinity.svg" *ngIf="badge === 'INF'">
+  </div>
 
   <div class="core-pig-avatar-box">
     <i class="fa fa-user-circle" [class.core-pig-accent-color]="useAccentColor" *ngIf="!gravatarUrl"></i>

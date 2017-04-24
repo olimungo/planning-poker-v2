@@ -64,9 +64,5 @@ export class CoreHeaderComponent {
       }
     }
   }
-
-  resetScrumMaster() {
-    console.log('toto')
-  }
 }
 

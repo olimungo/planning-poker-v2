@@ -24,31 +24,31 @@
 }
 
 .core-sub-header .core-sub-header-state {
-  font-size: 1.5vw;
+  font-size: 2.3vw;
   width: 18vw;
   margin-right: 1em;
 }
 
-.core-sub-header-actions {
+.core-sub-header .core-sub-header-actions {
   display: flex;
   justify-content: center;
 }
 
-.core-sub-header button {
+.core-sub-header .core-sub-header-actions button {
   border: none;
   color: rgba(255, 255, 255, .6);
   cursor: pointer;
   padding: 1.2vw .3vw;
-  width: 15vw;
-  font-size: 1vw;
+  width: 17vw;
+  font-size: 2.3vw;
   background: none;
 }
 
-.core-sub-header button:hover {
+.core-sub-header .core-sub-header-actions button:hover {
   background: rgba(0, 0, 0, .2);
 }
 
-.core-sub-header button:active {
+.core-sub-header .core-sub-header-actions button:active {
   background: rgba(0, 0, 0, .4);
 }
 
@@ -67,14 +67,14 @@
   .core-sub-header .core-scrum-master {
     display: initial;
   }
-  .core-sub-header .core-sub-header-state {
+  /*.core-sub-header .core-sub-header-state {
     font-size: 2.3vw;
   }
   .core-sub-header .core-sub-header-actions button {
     padding: 1.2vw .3vw;
     width: 17vw;
     font-size: 2.3vw;
-  }
+  }*/
 }
 
 @media screen and (min-width: 700px) {

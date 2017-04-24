@@ -12,6 +12,7 @@ import { VotedPigsListComponent } from './voted-pigs-list/voted-pigs-list.compon
 import { VotingPigsListComponent } from './voting-pigs-list/voting-pigs-list.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ResultComponent } from './result/result.component';
+import { FinalResultComponent } from './final-result/final-result.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { ResultComponent } from './result/result.component';
     VotedPigsListComponent,
     VotingPigsListComponent,
     RegistrationComponent,
-    ResultComponent
+    ResultComponent,
+    FinalResultComponent
   ],
   providers: [
     appRoutingProviders

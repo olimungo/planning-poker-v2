@@ -7,6 +7,7 @@
     <board-registration [boardKey]="boardKey" *ngIf="state == EState.REGISTRATION || state == EState.DISCUSSION"></board-registration>
     <board-voted-pigs-list [boardKey]="boardKey" *ngIf="state == EState.VOTE"></board-voted-pigs-list>
     <board-result [boardKey]="boardKey" *ngIf="state == EState.RESULT"></board-result>
+    <board-final-result [boardKey]="boardKey" *ngIf="state == EState.FINAL_RESULT"></board-final-result>
   </div>
 
   <board-active-pigs-list [boardKey]="boardKey" *ngIf="state == EState.REGISTRATION"></board-active-pigs-list>

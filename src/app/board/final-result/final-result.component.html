@@ -1,0 +1,17 @@
+<div class="board-final-result">
+  <div class="board-fr-title">FINAL RESULTS</div>
+
+  <div class="board-fr-results">
+    <div class="board-fr-table">
+      <div class="board-fr-row">
+        <div class="board-fr-header">STORY</div>
+        <div class="board-fr-header">ESTIMATE</div>
+      </div>
+
+      <div class="board-fr-row" *ngFor="let result of results; let index = index">
+        <div class="board-fr-story">{{ index + 1 }}</div>
+        <div class="board-fr-result">{{ result }}</div>
+      </div>
+    </div>
+  </div>
+</div>

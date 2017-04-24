@@ -1,7 +1,7 @@
 .core-workflow-overview .core-wkfl-box {
   display: flex;
   align-items: center;
-  font-size: .5vw;
+  font-size: 1.5vw;
 }
 
 .core-workflow-overview .core-wkfl-box .core-wkfl-main {
@@ -27,18 +27,11 @@
 
 .core-workflow-overview .core-wkfl-box .core-wkfl-main .core-wkfl-content .core-wkfl-value {
   color: #b6bac5;
-  font-size: .5vw;
   font-weight: 400;
 }
 
 .core-workflow-overview .core-wkfl-box .core-wkfl-main .core-wkfl-content .core-wkfl-value.core-wkfl-value-accent-color {
   color: #98d6f4;
-}
-
-@media screen and (max-width: 500px) {
-  .core-workflow-overview .core-wkfl-box .core-wkfl-main.time {
-    display: none;
-  }
 }
 
 @media screen and (min-width: 900px) {

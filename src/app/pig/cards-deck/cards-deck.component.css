@@ -5,16 +5,25 @@
   height: 100%;
 }
 
-.pig-cards-deck-content {
+.pig-cards-deck .pig-cards-deck-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 65vw;
 }
 
+.pig-cards-deck .pig-cards-deck-infinity {
+  width: 4vw;
+  height: 4vw;
+}
+
 @media screen and (min-width: 900px) {
   .pig-cards-deck .pig-cards-deck-content {
     font-size: 1.2em;
     width: 40em;
+  }
+  .pig-cards-deck .pig-cards-deck-infinity {
+    width: 1.7em;
+    height: 1.7em;
   }
 }

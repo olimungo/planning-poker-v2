@@ -92,6 +92,11 @@ export class BoardService {
 
   deactivatePig(boardKey: string, pigKey: string) {
     this.af.database.object(`boards/${boardKey}/pigs/${pigKey}/isActive`).set(false);
+    this.af.database.object(`boards/${boardKey}/scrumMaster`).take(1).subscribe(scrumMaster => {
+      if (scrumMaster.$value === pigKey) {
+        this.af.database.object(`boards/${boardKey}/scrumMaster`).set(null);
+      }
+    });
   }
 
   finalise(boardKey: string) {
@@ -125,5 +130,10 @@ export class BoardService {
         .map(votes => votes.map(vote => {
           return { key: vote.$key, badge: vote.$value };
         })));
+  }
+
+  retrieveFinalResult$(boardKey: string): Observable<any[]> {
+    return this.af.database.list(`boards/${boardKey}/workflow/results`)
+      .map(results => results.map(result => result.$value));
   }
 }

@@ -64,18 +64,22 @@
 }
 
 .core-pig .core-pig-badge {
-  font-size: 1.3vw;
+  font-size: 1.7vw;
   background: #ef771b;
   color: #fff;
   border-radius: 50%;
-  width: 3vw;
-  height: 3vw;
+  width: 4vw;
+  height: 4vw;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 3vw;
-  left: 6vw;
+  left: 9.5vw;
+}
+
+.core-pig .core-pig-infinity {
+  width: 2.5vw;
+  height: 2.5vw;
 }
 
 .core-pig .core-pig-badge.hidden {
@@ -98,43 +102,13 @@
     border-width: .08em;
   }
   .core-pig .core-pig-badge {
-    font-size: 0.6em;
-    width: 2.5em;
-    height: 2.5em;
-    top: 2.3em;
-    left: 4em;
+    font-size: 0.7em;
+    width: 2.4em;
+    height: 2.4em;
+    left: 6em;
+  }
+  .core-pig .core-pig-infinity {
+    width: 1.7em;
+    height: 1.7em;
   }
 }
-
-@media screen and (min-width: 900px) {}
-
-
-/*.core-pig .core-pig-tag {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@media screen and (min-width: 900px) {
-  .core-pig .core-pig-tag .fa {
-    font-size: 7em;
-    border: solid .05em #ef771b;
-  }
-  .core-pig .core-pig-avatar {
-    width: 7em;
-    height: 7em;
-    border: solid .4em #ef771b;
-  }
-  .core-pig .core-pig-name {
-    font-size: 1em;
-    padding: .2em .4em;
-    width: 7.5em;
-  }
-  .core-pig .core-pig-badge {
-    font-size: 1em;
-    width: 2em;
-    height: 2em;
-    top: 2.5em;
-    left: 2.5em;
-  }
-}*/

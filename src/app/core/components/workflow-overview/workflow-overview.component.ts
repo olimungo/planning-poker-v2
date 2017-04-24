@@ -68,8 +68,6 @@ export class WorkflowOverviewComponent {
             this.time.duration = this.formatDuration(workflow.time.end - workflow.time.start - totalPause);
             this.time.totalPause = this.formatDuration(totalPause);
 
-            console.log(totalPause);
-
           } else if (workflow.time.start) {
             const date = new Date(workflow.time.start);
             this.time.start = ('00' + date.getHours()).slice(-2) + ':' + ('00' + date.getMinutes()).slice(-2);
