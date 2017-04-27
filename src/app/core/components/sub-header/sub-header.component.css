@@ -6,7 +6,7 @@
   position: relative;
   transition: box-shadow .3s ease;
   z-index: 10;
-  padding: 1.5vw 2vw;
+  padding: 2vw 2vw .5vw 2vw;
   font-weight: 300;
 }
 
@@ -71,7 +71,7 @@
 
 @media screen and (min-width: 700px) {
   .core-sub-header {
-    padding: .5em 1em;
+    padding: 1em 1em .5em 1em;;
   }
   .core-sub-header .core-sub-header-state {
     font-size: 1.4em;

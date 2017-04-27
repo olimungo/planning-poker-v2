@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BoardModule } from './board/board.module';
 import { PigModule } from './pig/pig.module';
-import { TotoComponent } from './toto/toto.component';
 
 const CONFIG = {
     apiKey: 'AIzaSyB4qBbnvfmmv1nG-xoRHGynotrcWpHjZQo',
@@ -24,8 +23,7 @@ const CONFIG = {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TotoComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

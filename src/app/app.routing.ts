@@ -1,9 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
-import { TotoComponent } from './toto/toto.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'board', pathMatch: 'full' },
-  { path: 'toto', component: TotoComponent }
+  { path: '', redirectTo: 'board', pathMatch: 'full' }
 ];
 
 export const appRoutingProviders: any[] = [
