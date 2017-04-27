@@ -17,6 +17,9 @@
   height: 8vw;
 }
 
+.pig-cards-deck-inifinity {
+}
+
 @media screen and (min-width: 600px) {
   .pig-cards-deck .pig-cards-deck-content {
     font-size: 1.2em;

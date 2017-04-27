@@ -1,16 +1,17 @@
 .pig {
-  height: 100%;
+  background-color: #222;
+  color: #25ad38;
   display: flex;
   flex-direction: column;
-}
-.pig .pig-content {
   height: 100%;
-  display: flex;
-  justify-content: center;
+}
+
+.pig--content {
+  flex: 1;
   overflow: auto;
 }
 
-.pig .pig-content .pig-content-cards-deck {
+.pig--cards-deck {
   display: flex;
   align-items: center;
   justify-content: center;

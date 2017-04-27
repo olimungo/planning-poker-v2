@@ -1,10 +1,12 @@
 .board {
-  height: 100%;
+  background-color: #0e1f65;
+  color: #e6e4d5;
   display: flex;
   flex-direction: column;
-  background: #a7abbb;
+  height: 100%;
 }
 
-.board-content {
+.board--content {
   flex: 1;
+  overflow: auto;
 }

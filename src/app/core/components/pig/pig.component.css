@@ -19,16 +19,16 @@
   height: 11vw;
   border-style: solid;
   border-width: .5vw;
-  border-color: #a8dff6;
+  border-color: #25ad38;
 }
 
 .core-pig .core-pig-avatar-box .core-pig-image.core-pig-accent-color {
-  border-color: #ef771b;
+  border-color: #838db7;
 }
 
 .core-pig .core-pig-avatar-box .core-pig-name {
   background: #a8dff6;
-  color: #0288d1;
+  color: #e6e4d5;
   font-size: 1vw;
   padding: .3vw .4vw;
   border-radius: 2px;
@@ -42,8 +42,8 @@
 }
 
 .core-pig .core-pig-avatar-box .core-pig-name.core-pig-accent-color {
-  background: #ef771b !important;
-  color: #fff !important;
+  background: #838db7 !important;
+  color: #e6e4d5 !important;
 }
 
 .core-pig .core-pig-avatar-box .fa {
@@ -60,14 +60,14 @@
 }
 
 .core-pig .core-pig-avatar-box .fa.core-pig-accent-color {
-  background: #ef771b !important;
-  border-color: #ef771b;
+  background: #838db7 !important;
+  border-color: #838db7;
 }
 
 .core-pig .core-pig-badge {
   font-size: 1.6vw;
-  background: #ef771b;
-  color: #fff;
+  background: #e6e4d5;
+  color: #0e1f65;
   border-radius: 50%;
   width: 6vw;
   height: 6vw;
@@ -90,7 +90,7 @@
   visibility: hidden;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   .core-pig .core-pig-avatar-box .core-pig-image {
     width: 4.7em;
     height: 4.7em;

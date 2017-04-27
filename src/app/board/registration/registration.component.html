@@ -1,11 +1,5 @@
 <div class="board-registration">
-  <div class="board-registration-align-1">
-    <h1>Scan the code to join the session</h1>
+  <qr-code class="board-registration--qr-code" [value]="url" [size]="size"></qr-code>
 
-    <div>
-      <qr-code class="qr-code" [value]="url" [size]="size"></qr-code>
-    </div>
-
-    <button md-raised-button color="primary" (click)="createPig()">Or send a mail with the URL</button>
-  </div>
+  <button (click)="createPig()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 </div>

@@ -1,11 +1,8 @@
-<div class="core-header" [class.core-header-accent-color]="useAccentColor">
-  <div class="core-header-brand">
-    <img class="core-header-cards" src="/assets/svg/cards.svg">
-    <div class="core-header-title">Planning poker</div>
-  </div>
+<div class="core-header">
+  <h1>
+    <i class="fa fa-angle-right" aria-hidden="true"></i> PLANNING POKER
+  </h1>
 
-  <core-workflow-overview [boardKey]="_boardKey" [useAccentColor]="useAccentColor"></core-workflow-overview>
-
-  <core-pig class="core-header-avatar" (click)="openDialog()" [class.hide]="!displayAvatar" [name]="pig?.name"
+  <core-pig class="core-header--avatar" (click)="openDialog()" *ngIf="displayAvatar" [name]="pig?.name"
     [email]="pig?.email" [displayName]="false"></core-pig>
 </div>
