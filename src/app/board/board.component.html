@@ -1,15 +1,17 @@
 <div class="board">
-  <core-header [boardKey]="boardKey" [displayResetScrumMaster]="true"></core-header>
+  <core-header [boardKey]="boardKey" [displayAvatar]="true"></core-header>
 
   <core-sub-header [boardKey]="boardKey"></core-sub-header>
 
-  <div class="board-content">
+  <div class="board--content">
     <board-registration [boardKey]="boardKey" *ngIf="state == EState.REGISTRATION || state == EState.DISCUSSION"></board-registration>
     <board-voted-pigs-list [boardKey]="boardKey" *ngIf="state == EState.VOTE"></board-voted-pigs-list>
     <board-result [boardKey]="boardKey" *ngIf="state == EState.RESULT"></board-result>
     <board-final-result [boardKey]="boardKey" *ngIf="state == EState.FINAL_RESULT"></board-final-result>
   </div>
 
-  <board-active-pigs-list [boardKey]="boardKey" *ngIf="state == EState.REGISTRATION"></board-active-pigs-list>
-  <board-voting-pigs-list [boardKey]="boardKey" *ngIf="state == EState.DISCUSSION || state == EState.VOTE"></board-voting-pigs-list>
+  <div>
+    <board-active-pigs-list [boardKey]="boardKey" *ngIf="state == EState.REGISTRATION"></board-active-pigs-list>
+    <board-voting-pigs-list [boardKey]="boardKey" *ngIf="state == EState.DISCUSSION || state == EState.VOTE"></board-voting-pigs-list>
+  </div>
 </div>

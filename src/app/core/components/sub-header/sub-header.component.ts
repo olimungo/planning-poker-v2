@@ -9,7 +9,6 @@ import { CoreService } from '../../core.service';
   styleUrls: ['./sub-header.component.css']
 })
 export class CoreSubHeaderComponent {
-  @Input() useAccentColor = false;
   @Input() displayScrumMaster = false;
 
   @Input() set boardKey(value: string) {
@@ -41,6 +40,7 @@ export class CoreSubHeaderComponent {
 
       this.coreService.retrieveScrumMaster$(this._boardKey).subscribe((scrumMasterKey: string) => {
         this.scrumMasterKey = scrumMasterKey;
+        console.log('sm', this.scrumMasterKey === this._pigKey)
       });
 
       if (this._pigKey) {

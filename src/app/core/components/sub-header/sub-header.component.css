@@ -1,83 +1,60 @@
-.core-sub-header {
-  background: #505569;
-  color: rgba(255, 255, 255, .7);
-  flex: 0 0 auto;
-  box-shadow: 0 0 0 transparent;
-  position: relative;
-  transition: box-shadow .3s ease;
-  z-index: 10;
-  padding: 2vw 2vw .5vw 2vw;
-  font-weight: 300;
-}
-
-.core-sub-header.core-sub-header-accent-color {
-  background-color: #039be5;
-}
-
-.core-sub-header .core-sub-header-top {
+.core-sub-header--top {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 2vw 4vw;
 }
 
-.core-sub-header .core-sub-header-state {
+.core-sub-header--state {
+  align-items: center;
+  display: flex;
   font-size: 4vw;
+  justify-content: space-between;
   margin-right: 1em;
 }
 
-.core-sub-header .core-sub-header-actions {
+.core-sub-header--actions {
   display: flex;
-  justify-content: center;
-  margin: .3em 0;
+  justify-content: flex-start;
+  padding: 4vw;
 }
 
-.core-sub-header .core-sub-header-actions button {
-  border: none;
-  color: rgba(255, 255, 255, .6);
+.core-sub-header--actions button {
+  background: none;
+  border: solid 1px #25ad38;
+  color: #25ad38;
   cursor: pointer;
+  font-size: 3.7vw;
+  margin-right: 2vw;
   padding: 1.5vw .3vw;
   width: 27vw;
-  font-size: 3.7vw;
-  background: none;
 }
 
-.core-sub-header .core-sub-header-actions button:hover {
-  background: rgba(0, 0, 0, .2);
+.core-sub-header--actions button:hover {
+  background-color: rgba(0, 0, 0, .2);
 }
 
-.core-sub-header .core-sub-header-actions button:active {
-  background: rgba(0, 0, 0, .4);
-}
-
-.core-sub-header .core-scrum-master {
-  display: none;
+.core-sub-header--actions button:active {
+  background-color: rgba(0, 0, 0, .4);
 }
 
 .core-sub-header .mat-slide-toggle {
-  margin: 0;
+  height: initial;
 }
 
-@media screen and (min-width: 500px) {
-  .core-sub-header .core-scrum-sm {
-    display: none;
+@media screen and (min-width: 600px) {
+  .core-sub-header--top {
+    padding: .8em 1.6em;
   }
-  .core-sub-header .core-scrum-master {
-    display: initial;
+  .core-sub-header--state {
+    font-size: 1.5em;
   }
-  .core-sub-header .core-sub-header-state {
-    font-size: 1.3em;
+  .core-sub-header--actions {
+    padding: 1.7em;
   }
-}
-
-@media screen and (min-width: 700px) {
-  .core-sub-header {
-    padding: 1em 1em .5em 1em;;
-  }
-  .core-sub-header .core-sub-header-state {
-    font-size: 1.4em;
-  }
-  .core-sub-header .core-sub-header-actions button {
+  .core-sub-header--actions button {
     padding: .5em .4em;
+    margin-right: 1em;
     width: 8em;
     font-size: 1.4em;
   }

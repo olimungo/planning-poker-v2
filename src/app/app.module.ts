@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { routing, appRoutingProviders } from './app.routing';
 
@@ -30,6 +31,7 @@ const CONFIG = {
     FormsModule,
     HttpModule,
     MaterialModule,
+    FlexLayoutModule,
     AngularFireModule.initializeApp(CONFIG),
     routing,
     CoreModule.forRoot(),

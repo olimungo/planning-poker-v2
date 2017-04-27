@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule, MdDialogModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { CoreModule } from '../core/core.module';
 
 import { routing, appRoutingProviders } from './pig.routing';
@@ -18,6 +20,7 @@ import { ResultComponent } from './result/result.component';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FlexLayoutModule,
     MdDialogModule,
     CoreModule,
     routing

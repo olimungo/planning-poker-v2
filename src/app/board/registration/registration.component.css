@@ -1,24 +1,38 @@
 .board-registration {
-  margin-top: 7vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.board-registration .board-registration-align-1 {
-  text-align: center;
+.board-registration--qr-code {
+  margin-top: 8vh;
 }
 
-.board-registration h1 {
-  font-weight: 300;
-  color: #444;
-  margin-bottom: 4vh;
-  font-size: 5vw;
+.board-registration button {
+  background: none;
+  border: solid 1px #e6e4d5;
+  color: #e6e4d5;
+  cursor: pointer;
+  font-size: 3.7vw;
+  margin-top: 3vh;
+  outline: none;
+  padding: 1.5vw .3vw;
+  width: 25vw;
 }
 
-.board-registration .board-registration-align-1 button {
-  margin-top: 2vh;
+.board-registration button:hover {
+  background-color: rgba(255, 255, 255, .2);
 }
 
-@media screen and (min-width: 500px) {
-  .board-registration h1 {
-    font-size: 1.9em;
+.board-registration button:active {
+  background-color: rgba(255, 255, 255, .4);
+}
+
+@media screen and (min-width: 600px) {
+  .board-registration button {
+    font-size: 1.7em;
+    margin-top: 1em;
+    padding: .3em .2em;
+    width: 5.8em;
   }
 }

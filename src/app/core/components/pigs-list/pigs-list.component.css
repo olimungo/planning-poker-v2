@@ -4,14 +4,13 @@
   align-items: center;
   justify-content: center;
   align-content: center;
-  margin: 0 8vw;
 }
 
 .core-pigs-list core-pig {
   margin: 3vw;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
   .core-pigs-list {
     margin: 0 5em;
   }

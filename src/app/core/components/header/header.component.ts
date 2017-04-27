@@ -12,9 +12,7 @@ import { IPig } from '../..';
   styleUrls: ['./header.component.css']
 })
 export class CoreHeaderComponent {
-  @Input() useAccentColor = false;
   @Input() displayAvatar = false;
-  @Input() displayResetScrumMaster = false;
 
   @Input() set boardKey(value: string) {
     this._boardKey = value;
