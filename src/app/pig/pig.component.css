@@ -7,6 +7,7 @@
   height: 100%;
   display: flex;
   justify-content: center;
+  overflow: auto;
 }
 
 .pig .pig-content .pig-content-cards-deck {

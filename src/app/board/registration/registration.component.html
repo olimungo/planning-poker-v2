@@ -3,9 +3,9 @@
     <h1>Scan the code to join the session</h1>
 
     <div>
-      <qr-code [value]="url" [size]="100"></qr-code>
+      <qr-code class="qr-code" [value]="url" [size]="size"></qr-code>
     </div>
 
-    <button md-raised-button color="primary" (click)="createPig()" *ngIf="!hideCreatePiButton">Or send a mail with the URL</button>
+    <button md-raised-button color="primary" (click)="createPig()">Or send a mail with the URL</button>
   </div>
 </div>

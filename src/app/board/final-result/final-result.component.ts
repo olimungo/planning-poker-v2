@@ -21,7 +21,6 @@ export class FinalResultComponent {
 
   retrieveFinalResults() {
     this.boarService.retrieveFinalResult$(this._boardKey).take(1).subscribe(results => {
-      console.log(results);
       this.results = results;
     });
   }

@@ -1,5 +1,5 @@
 <div class="core-sub-header" [class.core-sub-header-accent-color]="useAccentColor">
-  <div class="core-sub-header-left">
+  <div class="core-sub-header-top">
     <div class="core-sub-header-state">
       <div *ngIf="state === EState.REGISTRATION">REGISTRATION</div>
       <div *ngIf="state === EState.DISCUSSION">DISCUSSION</div>
@@ -10,21 +10,21 @@
       <div *ngIf="state === EState.PAUSE">PAUSED</div>
     </div>
 
-    <div class="core-sub-header-actions" *ngIf="scrumMasterKey && scrumMasterKey === _pigKey">
-      <button (click)="setState(EState.PRE_DISCUSSION)" *ngIf="state === EState.REGISTRATION">START</button>
-      <button (click)="setState(EState.VOTE)" *ngIf="state === EState.DISCUSSION">VOTE</button>
-      <button (click)="setState(EState.PRE_REVOTE)" *ngIf="state === EState.RESULT">RE-VOTE</button>
-      <button (click)="setState(EState.RESULT)" *ngIf="state === EState.VOTE">STOP VOTING</button>
-      <button (click)="setState(EState.PRE_PAUSE)" *ngIf="state === EState.DISCUSSION">PAUSE</button>
-      <button (click)="setState(EState.UNPAUSE)" *ngIf="state === EState.PAUSE">STOP PAUSE</button>
-      <button (click)="setState(EState.PRE_FINAL_RESULT)" *ngIf="state === EState.DISCUSSION">END</button>
+    <div *ngIf="displayScrumMaster && (!scrumMasterKey || scrumMasterKey === _pigKey)">
+      <md-slide-toggle color="warn" (change)="toggleScrumMaster()" [checked]="_pigKey === scrumMasterKey">
+        <div class="core-scrum-master">Scrum Master</div>
+        <div class="core-scrum-sm">SM</div>
+      </md-slide-toggle>
     </div>
   </div>
 
-  <div *ngIf="displayScrumMaster && (!scrumMasterKey || scrumMasterKey === _pigKey)">
-    <md-slide-toggle color="warn" (change)="toggleScrumMaster()" [checked]="_pigKey === scrumMasterKey">
-      <div class="core-scrum-master">Scrum Master</div>
-      <div class="core-scrum-sm">SM</div>
-    </md-slide-toggle>
+  <div class="core-sub-header-actions" *ngIf="scrumMasterKey && scrumMasterKey === _pigKey">
+    <button (click)="setState(EState.PRE_DISCUSSION)" *ngIf="state === EState.REGISTRATION">START</button>
+    <button (click)="setState(EState.VOTE)" *ngIf="state === EState.DISCUSSION">VOTE</button>
+    <button (click)="setState(EState.PRE_REVOTE)" *ngIf="state === EState.RESULT">RE-VOTE</button>
+    <button (click)="setState(EState.RESULT)" *ngIf="state === EState.VOTE">STOP VOTING</button>
+    <button (click)="setState(EState.PRE_PAUSE)" *ngIf="state === EState.DISCUSSION">PAUSE</button>
+    <button (click)="setState(EState.UNPAUSE)" *ngIf="state === EState.PAUSE">STOP PAUSE</button>
+    <button (click)="setState(EState.PRE_FINAL_RESULT)" *ngIf="state === EState.DISCUSSION">END</button>
   </div>
 </div>

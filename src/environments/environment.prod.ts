@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backEndUrl: '???'
+  backEndUrl: 'https://planningpoker-b35a7.firebaseapp.com/'
 };

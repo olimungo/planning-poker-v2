@@ -27,8 +27,8 @@ export class CoreSubHeaderComponent {
   scrumMasterKey: string;
   hasVoted: boolean;
 
-  private _boardKey: string;
-  private _pigKey: string;
+  _boardKey: string;
+  _pigKey: string;
 
   constructor(private coreService: CoreService) { }
 

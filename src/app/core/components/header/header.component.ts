@@ -30,8 +30,8 @@ export class CoreHeaderComponent {
   story: number;
   round: number;
 
-  private _boardKey: string;
-  private _pigKey: string;
+  _boardKey: string;
+  _pigKey: string;
 
   constructor(public dialog: MdDialog, private coreService: CoreService) { }
 

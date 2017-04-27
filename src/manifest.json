@@ -1,0 +1,10 @@
+{
+    "short_name": "PlanningPoker",
+    "name": "PlanningPoker",
+    "description": "Planning Poker",
+    "start_url": "./index.html",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "theme_color": "#29BDBB",
+    "background_color": "#29BDBB"
+}

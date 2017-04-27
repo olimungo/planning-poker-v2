@@ -10,15 +10,15 @@
   font-weight: 300;
   color: #444;
   margin-bottom: 4vh;
-  font-size: 3vw;
+  font-size: 5vw;
 }
 
 .board-registration .board-registration-align-1 button {
   margin-top: 2vh;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 500px) {
   .board-registration h1 {
-    font-size: 2em;
+    font-size: 1.9em;
   }
 }

@@ -9,21 +9,27 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 65vw;
+  width: 80vw;
 }
 
 .pig-cards-deck .pig-cards-deck-infinity {
-  width: 4vw;
-  height: 4vw;
+  width: 8vw;
+  height: 8vw;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
   .pig-cards-deck .pig-cards-deck-content {
     font-size: 1.2em;
-    width: 40em;
+    width: 30em;
   }
   .pig-cards-deck .pig-cards-deck-infinity {
     width: 1.7em;
     height: 1.7em;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .pig-cards-deck .pig-cards-deck-content {
+    width: 40em;
   }
 }

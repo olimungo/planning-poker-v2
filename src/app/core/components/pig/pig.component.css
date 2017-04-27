@@ -1,5 +1,6 @@
 .core-pig {
   display: flex;
+  position: relative;
 }
 
 .core-pig.core-pig-hide {
@@ -14,8 +15,8 @@
 
 .core-pig .core-pig-avatar-box .core-pig-image {
   border-radius: 50%;
-  width: 7vw;
-  height: 7vw;
+  width: 11vw;
+  height: 11vw;
   border-style: solid;
   border-width: .5vw;
   border-color: #a8dff6;
@@ -31,13 +32,13 @@
   font-size: 1vw;
   padding: .3vw .4vw;
   border-radius: 2px;
-  width: 7vw;
+  width: 13vw;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  position: relative;
-  top: -6px;
+  position: absolute;
+  bottom: -6px;
 }
 
 .core-pig .core-pig-avatar-box .core-pig-name.core-pig-accent-color {
@@ -46,7 +47,7 @@
 }
 
 .core-pig .core-pig-avatar-box .fa {
-  font-size: 7vw;
+  font-size: 11vw;
   border-style: solid;
   border-width: .5vw;
   border-color: #a8dff6;
@@ -64,22 +65,25 @@
 }
 
 .core-pig .core-pig-badge {
-  font-size: 1.7vw;
+  font-size: 1.6vw;
   background: #ef771b;
   color: #fff;
   border-radius: 50%;
-  width: 4vw;
-  height: 4vw;
+  width: 6vw;
+  height: 6vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  left: 9.5vw;
+  position: absolute;
+  left: 9vw;
 }
 
 .core-pig .core-pig-infinity {
-  width: 2.5vw;
-  height: 2.5vw;
+  width: 4vw;
+  height: 4vw;
+  position: relative;
+  left: .1vw;
+  top: .3vw;
 }
 
 .core-pig .core-pig-badge.hidden {
@@ -88,27 +92,27 @@
 
 @media screen and (min-width: 700px) {
   .core-pig .core-pig-avatar-box .core-pig-image {
-    width: 3em;
-    height: 3em;
+    width: 4.7em;
+    height: 4.7em;
     border-width: .2em;
   }
   .core-pig .core-pig-avatar-box .core-pig-name {
-    font-size: .7em;
-    padding: .2em .3em;
-    width: 5em;
+    font-size: .8em;
+    padding: .1em .3em;
+    width: 8em;
   }
   .core-pig .core-pig-avatar-box .fa {
-    font-size: 3em;
-    border-width: .08em;
+    font-size: 4.7em;
+    border-width: .04em;
   }
   .core-pig .core-pig-badge {
     font-size: 0.7em;
-    width: 2.4em;
-    height: 2.4em;
-    left: 6em;
+    width: 3.2em;
+    height: 3.2em;
+    left: 5.5em;
   }
   .core-pig .core-pig-infinity {
-    width: 1.7em;
-    height: 1.7em;
+    width: 2.2em;
+    height: 2.2em;
   }
 }

@@ -1,12 +1,12 @@
 .pig-card {
   cursor: pointer;
   border-radius: .8vw;
-  margin: .8vw;
+  margin: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 8vw;
-  height: 12vw;
+  width: 13vw;
+  height: 20vw;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
   padding: 1.3vw;
   background: #fdde5f;
@@ -17,7 +17,7 @@
 }
 
 .pig-card .pig-card-content {
-  font-size: 2vw;
+  font-size: 4vw;
   width: 100%;
   height: 100%;
   display: flex;
@@ -34,7 +34,7 @@
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
   .pig-card {
     width: 4em;
     height: 6em;

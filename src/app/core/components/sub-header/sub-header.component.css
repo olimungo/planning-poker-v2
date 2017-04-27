@@ -1,16 +1,12 @@
 .core-sub-header {
   background: #505569;
   color: rgba(255, 255, 255, .7);
-  display: flex;
   flex: 0 0 auto;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: 0 0 0 transparent;
   position: relative;
   transition: box-shadow .3s ease;
   z-index: 10;
-  padding: 0 2vw;
-  height: 8vw;
+  padding: 1.5vw 2vw;
   font-weight: 300;
 }
 
@@ -18,29 +14,30 @@
   background-color: #039be5;
 }
 
-.core-sub-header .core-sub-header-left {
+.core-sub-header .core-sub-header-top {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 .core-sub-header .core-sub-header-state {
-  font-size: 2.3vw;
-  width: 18vw;
+  font-size: 4vw;
   margin-right: 1em;
 }
 
 .core-sub-header .core-sub-header-actions {
   display: flex;
   justify-content: center;
+  margin: .3em 0;
 }
 
 .core-sub-header .core-sub-header-actions button {
   border: none;
   color: rgba(255, 255, 255, .6);
   cursor: pointer;
-  padding: 1.2vw .3vw;
-  width: 17vw;
-  font-size: 2.3vw;
+  padding: 1.5vw .3vw;
+  width: 27vw;
+  font-size: 3.7vw;
   background: none;
 }
 
@@ -67,28 +64,21 @@
   .core-sub-header .core-scrum-master {
     display: initial;
   }
-  /*.core-sub-header .core-sub-header-state {
-    font-size: 2.3vw;
+  .core-sub-header .core-sub-header-state {
+    font-size: 1.3em;
   }
-  .core-sub-header .core-sub-header-actions button {
-    padding: 1.2vw .3vw;
-    width: 17vw;
-    font-size: 2.3vw;
-  }*/
 }
 
 @media screen and (min-width: 700px) {
   .core-sub-header {
-    padding: 0 1em;
-    height: 4em;
+    padding: .5em 1em;
   }
   .core-sub-header .core-sub-header-state {
-    font-size: 1.2em;
-    width: 8em;
+    font-size: 1.4em;
   }
   .core-sub-header .core-sub-header-actions button {
     padding: .5em .4em;
     width: 8em;
-    font-size: 1em;
+    font-size: 1.4em;
   }
 }
