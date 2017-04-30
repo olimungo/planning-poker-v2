@@ -11,9 +11,9 @@ export class PigService {
   createPig$(boardKey: string): Observable<IPig> {
     return Observable.create((observer: Observer<IPig>) => {
       const pigs$ = this.af.database.list(`boards/${boardKey}/pigs`, { query: { orderByChild: 'dateCreated' } });
-      const dateCreated = new Date().getTime();
-      const newPig$ = pigs$.push({ 'dateCreated': dateCreated, 'isActive': true });
-      const pig: IPig = { key: newPig$.ref.key, dateCreated: dateCreated };
+      const now = new Date().getTime();
+      const newPig$ = pigs$.push({ 'dateCreated': now, 'isActive': true });
+      const pig: IPig = { key: newPig$.ref.key, dateCreated: now };
 
       // Retrieve the new inserted pig in the "ordered by dateCreated" list so to assign a counter to the new pig.
       pigs$.take(1).subscribe((pigs: any[]) => {

@@ -17,4 +17,8 @@
 
     <pig-results [boardKey]="boardKey" *ngIf="state === EState.RESULTS && pig?.key === scrumMasterKey"></pig-results>
   </div>
+
+  <div class="pig--code" (click)="openGitHub()">
+    <i class="fa fa-github" aria-hidden="true"></i>
+  </div>
 </div>

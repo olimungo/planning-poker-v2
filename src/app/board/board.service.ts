@@ -8,7 +8,7 @@ import { IPig, Pig, EState, CoreService } from '../core';
 export class BoardService {
   constructor(private af: AngularFire, private coreService: CoreService) { }
 
-  getNewBoardId(): string {
+  generateBoardKey(): string {
     return this.af.database.list('boards').$ref.ref.push().key;
   }
 
@@ -20,12 +20,16 @@ export class BoardService {
     return this.coreService.setState(boardKey, state);
   }
 
-  checkBoardExists$(boardKey: string): Observable<boolean> {
-    return this.af.database.object(`boards/${boardKey}`)
-      .take(1)
-      .map((board: any) => {
-        return board.$exists();
+  checkBoardDateCreated$(boardKey: string): Observable<any> {
+    return this.af.database.list(`boards/${boardKey}/pigs`)
+      .combineLatest(this.af.database.object(`boards/${boardKey}/dateCreated`))
+      .map(([ pigs, dateCreated ]) => {
+        return { pigs: pigs, dateCreated: dateCreated.$value };
       });
+  }
+
+  setBoardDateCreated(boardKey: string) {
+    this.af.database.object(`boards/${boardKey}/dateCreated`).set(new Date().getTime());
   }
 
   prepareVotingRound(boardKey: string, state: number) {

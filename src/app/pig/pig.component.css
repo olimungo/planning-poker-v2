@@ -22,8 +22,35 @@
   height: 100%;
 }
 
+.pig--code {
+  bottom: 0;
+  cursor: pointer;
+  padding: 1vw 0 2vw 3vw;
+  position: absolute;
+}
+
+.pig--code .fa-github {
+  font-size: 8vw;
+  padding: .6vw 1.2vw;
+  border-radius: 2px;
+}
+
+.pig--code .fa-github:hover {
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.pig--code .fa-github:active {
+  background-color: rgba(255, 255, 255, .2);
+}
 @media screen and (min-width: 600px) {
   .pig--workflow-overview {
     margin: 0 1em 1em 1.6em;
+  }
+  .pig--code {
+    padding: .2em 0 .4em .6em;
+  }
+  .pig--code .fa-github {
+    font-size: 3em;
+    padding: .1em .2em;
   }
 }

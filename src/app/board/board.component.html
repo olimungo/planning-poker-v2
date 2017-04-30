@@ -22,4 +22,8 @@
     <board-voting-pigs-list [boardKey]="boardKey" *ngIf="state === EState.DISCUSSION || state == EState.VOTE || state == EState.PAUSE">
     </board-voting-pigs-list>
   </div>
+
+  <div class="board--code" (click)="openGitHub()">
+    <i class="fa fa-github" aria-hidden="true"></i>
+  </div>
 </div>
