@@ -1,0 +1,9 @@
+.pig-result {
+  margin-top: 2vh;
+}
+
+@media screen and (min-width: 600px) {
+  .pig-result {
+    margin-top: 4em;
+  }
+}

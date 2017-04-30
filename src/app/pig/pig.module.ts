@@ -12,7 +12,7 @@ import { routing, appRoutingProviders } from './pig.routing';
 import { PigComponent } from './pig.component';
 import { CardsDeckComponent } from './cards-deck/cards-deck.component';
 import { CardComponent } from './cards-deck/card/card.component';
-import { ResultComponent } from './result/result.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   imports: [
@@ -32,7 +32,7 @@ import { ResultComponent } from './result/result.component';
     PigComponent,
     CardsDeckComponent,
     CardComponent,
-    ResultComponent,
+    ResultsComponent,
   ],
   providers: [
     appRoutingProviders

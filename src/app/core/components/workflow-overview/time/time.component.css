@@ -1,0 +1,31 @@
+.workflow-overview-time {
+  align-items: center;
+  display: flex;
+  font-size: 3vw;
+}
+
+.workflow-overview-time--values {
+  align-items: center;
+  display: flex;
+}
+
+.workflow-overview-time--label {
+  margin-left: 1vw;
+}
+
+.workflow-overview-time--value {
+  font-weight: 500;
+  margin: 0 1vw;
+}
+
+@media screen and (min-width: 600px) {
+  .workflow-overview-time {
+    font-size: 1em;
+  }
+  .workflow-overview-time--label {
+    margin-left: .7em;
+  }
+  .workflow-overview-time--value {
+    margin: 0 .7em;
+  }
+}

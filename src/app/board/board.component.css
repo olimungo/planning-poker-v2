@@ -1,12 +1,22 @@
 .board {
-  background-color: #0e1f65;
-  color: #e6e4d5;
+  background-color: #222;
+  color: #dc8848;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
+.board--workflow-overview {
+  margin: 0 4vw 4vw 4vw;
+}
+
 .board--content {
   flex: 1;
   overflow: auto;
+}
+
+@media screen and (min-width: 600px) {
+  .board--workflow-overview {
+    margin: 0 1em 1em 1.6em;
+  }
 }

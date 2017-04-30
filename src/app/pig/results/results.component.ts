@@ -3,11 +3,11 @@ import { Component, Input } from '@angular/core';
 import { PigService } from '../pig.service';
 
 @Component({
-  selector: 'pig-result',
-  templateUrl: './result.component.html',
-  styleUrls: ['./result.component.css']
+  selector: 'pig-results',
+  templateUrl: './results.component.html',
+  styleUrls: ['./results.component.css']
 })
-export class ResultComponent {
+export class ResultsComponent {
   @Input() set boardKey(value: string) {
     this._boardKey = value;
   }

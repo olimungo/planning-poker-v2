@@ -5,9 +5,9 @@
       <div *ngIf="state === EState.DISCUSSION">DISCUSSION</div>
       <div *ngIf="state === EState.VOTE && !hasVoted">VOTING</div>
       <div *ngIf="state === EState.VOTE && hasVoted">WAITING...</div>
-      <div *ngIf="state === EState.RESULT && scrumMasterKey !== _pigKey">RESULT</div>
-      <div *ngIf="state === EState.RESULT && scrumMasterKey === _pigKey">SELECT THE FINAL ESTIMATE</div>
-      <div *ngIf="state === EState.FINAL_RESULT">FINAL RESULT</div>
+      <div *ngIf="state === EState.RESULTS && scrumMasterKey !== _pigKey">RESULTS</div>
+      <div *ngIf="state === EState.RESULTS && scrumMasterKey === _pigKey">SELECT THE FINAL ESTIMATE</div>
+      <div *ngIf="state === EState.FINAL_RESULTS">FINAL RESULTS</div>
       <div *ngIf="state === EState.PAUSE">PAUSED</div>
     </div>
 
@@ -19,10 +19,10 @@
   <div class="core-sub-header--actions" *ngIf="scrumMasterKey && scrumMasterKey === _pigKey">
     <button (click)="setState(EState.PRE_DISCUSSION)" *ngIf="state === EState.REGISTRATION">START</button>
     <button (click)="setState(EState.VOTE)" *ngIf="state === EState.DISCUSSION">VOTE</button>
-    <button (click)="setState(EState.PRE_REVOTE)" *ngIf="state === EState.RESULT">RE-VOTE</button>
-    <button (click)="setState(EState.RESULT)" *ngIf="state === EState.VOTE">STOP VOTING</button>
+    <button (click)="setState(EState.PRE_REVOTE)" *ngIf="state === EState.RESULTS">RE-VOTE</button>
+    <button (click)="setState(EState.RESULTS)" *ngIf="state === EState.VOTE">STOP VOTING</button>
     <button (click)="setState(EState.PRE_PAUSE)" *ngIf="state === EState.DISCUSSION">PAUSE</button>
     <button (click)="setState(EState.UNPAUSE)" *ngIf="state === EState.PAUSE">STOP PAUSE</button>
-    <button (click)="setState(EState.PRE_FINAL_RESULT)" *ngIf="state === EState.DISCUSSION">END</button>
+    <button (click)="setState(EState.PRE_FINAL_RESULTS)" *ngIf="state === EState.DISCUSSION">END</button>
   </div>
 </div>

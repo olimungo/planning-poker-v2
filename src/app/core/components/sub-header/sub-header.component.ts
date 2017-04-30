@@ -40,7 +40,6 @@ export class CoreSubHeaderComponent {
 
       this.coreService.retrieveScrumMaster$(this._boardKey).subscribe((scrumMasterKey: string) => {
         this.scrumMasterKey = scrumMasterKey;
-        console.log('sm', this.scrumMasterKey === this._pigKey)
       });
 
       if (this._pigKey) {

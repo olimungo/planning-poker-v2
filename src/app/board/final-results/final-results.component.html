@@ -1,0 +1,19 @@
+<div class="board-final-results">
+  <div class="board-final-results--table">
+    <div class="board-final-results--row">
+      <div class="board-final-results--header">STORY</div>
+      <div class="board-final-results--header">ESTIMATES</div>
+    </div>
+
+    <div class="board-final-results--row" *ngFor="let result of results; let index = index">
+      <div class="board-final-results--story">{{ index + 1 }}</div>
+
+      <div class="board-final-results--result">
+        <div *ngIf="result !== 'INF'">{{ result }}</div>
+        <img class="board-final-results--infinity" src="/assets/svg/infinity.orange.svg" *ngIf="result === 'INF'">
+      </div>
+    </div>
+  </div>
+
+  <button (click)="mail()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+</div>

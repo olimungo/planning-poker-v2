@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { EState } from '../core/entities';
@@ -15,7 +16,7 @@ export class BoardComponent {
   EState = EState;
   state: number = -1;
 
-  constructor(private route: ActivatedRoute, private boardService: BoardService) {
+  constructor(private route: ActivatedRoute, private location: Location, private boardService: BoardService) {
     this.route.params.subscribe(params => {
       this.boardKey = params['boardKey'];
 
@@ -29,6 +30,7 @@ export class BoardComponent {
         });
       } else {
         this.boardKey = this.boardService.getNewBoardId();
+        this.location.replaceState(this.location.path() + `/${this.boardKey}`);
         this.setWatchers();
       }
     });
@@ -41,7 +43,7 @@ export class BoardComponent {
     this.boardService.retrieveState$(this.boardKey)
       .combineLatest(this.boardService.retrieveCountVotedPigs$(this.boardKey)).subscribe(([ state, count ]) => {
         if (count !== previousCount && state === EState.VOTE && count === 0) {
-          this.boardService.setState(this.boardKey, EState.RESULT);
+          this.boardService.setState(this.boardKey, EState.RESULTS);
         }
 
         if (state !== previousState) {
@@ -49,7 +51,7 @@ export class BoardComponent {
             this.boardService.prepareVotingRound(this.boardKey, state);
           }
 
-          if (state === EState.PRE_FINAL_RESULT) {
+          if (state === EState.PRE_FINAL_RESULTS) {
             console.log('pre final')
             this.boardService.finalise(this.boardKey);
           }

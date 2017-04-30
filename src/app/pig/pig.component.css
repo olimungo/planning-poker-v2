@@ -11,8 +11,19 @@
   overflow: auto;
 }
 
+.pig--workflow-overview {
+  margin: 0 4vw 4vw 4vw;
+}
+
 .pig--cards-deck {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
+  height: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .pig--workflow-overview {
+    margin: 0 1em 1em 1.6em;
+  }
 }
