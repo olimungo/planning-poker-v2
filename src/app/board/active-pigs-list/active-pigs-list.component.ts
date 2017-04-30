@@ -25,4 +25,8 @@ export class ActivePigsListComponent {
       this.pigs = pigs.filter(pig => pig.isActive);
     });
   }
+
+  deactivate(pigKey: string) {
+    this.boarService.deactivatePig(this._boardKey, pigKey);
+  }
 }

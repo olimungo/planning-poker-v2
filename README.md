@@ -11,9 +11,9 @@ There's no login, the app is based on a unique session id.
 
 Web site: http://pp.mungo.eu
 
-## $ Documentation
+## $ User's guide
 
-[Click here](docs/index.md)
+[Click here](docs/users-guide.md)
 
 ## $ Technologies
 
