@@ -42,7 +42,6 @@
 .pig--code .fa-github:active {
   background-color: rgba(255, 255, 255, .2);
 }
-
 @media screen and (min-width: 600px) {
   .pig--workflow-overview {
     margin: 0 1em 1em 1.6em;
