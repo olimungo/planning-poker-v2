@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule, MdDialogModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { CoreModule } from '../core/core.module';
 
@@ -20,7 +19,6 @@ import { ResultsComponent } from './results/results.component';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule,
     MdDialogModule,
     CoreModule,
     routing

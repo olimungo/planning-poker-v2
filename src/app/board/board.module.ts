@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { QRCodeModule } from 'ng-qrcode';
+import { QRCodeModule } from 'angular2-qrcode';
 
 import { CoreModule } from '../core/core.module';
 
@@ -20,7 +19,6 @@ import { FinalResultsComponent } from './final-results/final-results.component';
   imports: [
     CommonModule,
     MaterialModule,
-    FlexLayoutModule,
     QRCodeModule,
     CoreModule,
     routing
