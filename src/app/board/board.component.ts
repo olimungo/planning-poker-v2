@@ -52,7 +52,6 @@ export class BoardComponent {
           }
 
           if (state === EState.PRE_FINAL_RESULTS) {
-            console.log('pre final')
             this.boardService.finalise(this.boardKey);
           }
 
