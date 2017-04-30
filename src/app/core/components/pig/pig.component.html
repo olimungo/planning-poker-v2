@@ -1,13 +1,14 @@
-<div class="core-pig" [class.core-pig-hide]="!name && !gravatarUrl">
-  <div class="core-pig-badge" [class.hidden]="!badge">
-    <div *ngIf="badge !== 'INF'">{{ badge }}</div>
-    <img class="core-pig-infinity" src="/assets/svg/infinity.svg" *ngIf="badge === 'INF'">
+<div class="core-pig" [class.core-pig--hide]="!name && !gravatarUrl">
+  <div class="core-pig--avatar">
+    <i class="fa fa-user-circle" [class.core-pig--accent-color]="useAccentColor" *ngIf="!gravatarUrl"></i>
+
+    <img class="core-pig--image" [class.core-pig--accent-color]="useAccentColor" [src]="gravatarUrl" *ngIf="gravatarUrl">
+
+    <div class="core-pig--name" [class.core-pig--accent-color]="useAccentColor" *ngIf="displayName">{{ name }}</div>
   </div>
 
-  <div class="core-pig-avatar-box">
-    <i class="fa fa-user-circle" [class.core-pig-accent-color]="useAccentColor" *ngIf="!gravatarUrl"></i>
-    <img class="core-pig-image" [src]="gravatarUrl" [class.core-pig-accent-color]="useAccentColor" *ngIf="gravatarUrl">
-
-    <div class="core-pig-name" *ngIf="displayName" [class.core-pig-accent-color]="useAccentColor">{{ name }}</div>
+  <div class="core-pig--badge" [class.core-pig--accent-color]="useAccentColor" [class.core-pig--hide]="!badge">
+    <div class="core-pig--badge-value" *ngIf="badge !== 'INF'">{{ badge }}</div>
+    <img class="core-pig--infinity" [src]="'/assets/svg/infinity' + (useAccentColor ? '.white' : '') +  '.svg'" *ngIf="badge === 'INF'">
   </div>
 </div>

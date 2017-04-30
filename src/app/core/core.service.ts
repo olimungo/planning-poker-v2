@@ -89,7 +89,6 @@ export class CoreService {
           result.time = workflow.time ? workflow.time : null;
           result.stories = workflow.stories ? workflow.stories : null;
           result.step = workflow.step ? workflow.step : null;
-          result.state = workflow.state ? workflow.state : null;
         }
 
         return result;

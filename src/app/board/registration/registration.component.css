@@ -10,8 +10,8 @@
 
 .board-registration button {
   background: none;
-  border: solid 1px #e6e4d5;
-  color: #e6e4d5;
+  border: solid 1px #dc8848;
+  color: #dc8848;
   cursor: pointer;
   font-size: 3.7vw;
   margin-top: 3vh;
@@ -21,11 +21,11 @@
 }
 
 .board-registration button:hover {
-  background-color: rgba(255, 255, 255, .2);
+  background-color: rgba(220, 136, 72, .2);
 }
 
 .board-registration button:active {
-  background-color: rgba(255, 255, 255, .4);
+  background-color: rgba(220, 136, 72, .4);
 }
 
 @media screen and (min-width: 600px) {

@@ -1,0 +1,94 @@
+.board-final-results {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 3.5vw;
+  margin-top: 8vh;
+}
+
+.board-final-results--table {
+  border: solid 1px;
+  width: 70vw;
+}
+
+.board-final-results--row {
+  display: flex;
+}
+
+.board-final-results--header {
+  padding: 1vw 1.5vw;
+  width: 35vw;
+}
+
+.board-final-results--results {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.board-final-results--story {
+  padding: 1vw 1.5vw;
+  width: 35vw;
+}
+
+.board-final-results--result {
+  padding: 1vw 1.5vw;
+  width: 35vw;
+}
+
+.board-final-results--infinity {
+  height: 5vw;
+  padding: 0;
+  width: 5vw;
+}
+
+.board-final-results button {
+  background: none;
+  border: solid 1px #dc8848;
+  color: #dc8848;
+  cursor: pointer;
+  font-size: 3.5vw;
+  margin-top: 3vh;
+  outline: none;
+  padding: 1.5vw .3vw;
+  width: 25vw;
+}
+
+.board-final-results button:hover {
+  background-color: rgba(220, 136, 72, .2);
+}
+
+.board-final-results button:active {
+  background-color: rgba(220, 136, 72, .4);
+}
+
+@media screen and (min-width: 600px) {
+  .board-final-results {
+    font-size: 1.3em;
+  }
+  .board-final-results--table {
+    width: 20em;
+  }
+  .board-final-results--header {
+    padding: .4em;
+    width: 10em;
+  }
+  .board-final-results--story {
+    padding: .4em;
+    width: 10em;
+  }
+  .board-final-results--result {
+    padding: .4em;
+    width: 10em;
+  }
+  .board-final-results--infinity {
+    height: 1.5em;
+    width: 1.5em;
+  }
+  .board-final-results button {
+    font-size: 1.4em;
+    margin-top: 1em;
+    padding: .2em .5em;
+    width: 5em;
+  }
+}

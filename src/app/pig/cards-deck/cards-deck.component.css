@@ -1,38 +1,39 @@
 .pig-cards-deck {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100%;
 }
 
-.pig-cards-deck .pig-cards-deck-content {
+.pig-cards-deck--content {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.pig-cards-deck--cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 80vw;
 }
 
-.pig-cards-deck .pig-cards-deck-infinity {
-  width: 8vw;
+.pig-cards-deck--infinity {
   height: 8vw;
-}
-
-.pig-cards-deck-inifinity {
+  width: 8vw;
 }
 
 @media screen and (min-width: 600px) {
-  .pig-cards-deck .pig-cards-deck-content {
+  .pig-cards-deck--cards {
     font-size: 1.2em;
     width: 30em;
   }
-  .pig-cards-deck .pig-cards-deck-infinity {
-    width: 1.7em;
+  .pig-cards-deck--infinity {
     height: 1.7em;
+    width: 1.7em;
   }
 }
 
 @media screen and (min-width: 900px) {
-  .pig-cards-deck .pig-cards-deck-content {
-    width: 40em;
+  .pig-cards-deck--cards {
+    width: 35em;
   }
 }

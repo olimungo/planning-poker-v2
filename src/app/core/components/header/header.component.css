@@ -2,36 +2,36 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: .5vw 1vw .5vw 4vw;
+  padding: .5vw 2vw .5vw 4vw;
 }
 
 .core-header h1 {
-  font-size: 5vw;
+  font-size: 7vw;
+  font-weight: 300;
 }
 
-.core-header .core-header--avatar {
+.core-header--avatar {
   border-radius: 3px;
   cursor: pointer;
-  padding: 1vw;
-  transform: scale(.8);
+  padding: 2vw;
 }
 
-.core-header .core-header--avatar:hover {
+.core-header--avatar:hover {
   background-color: rgba(37, 153, 76, .2);
 }
 
-.core-header .core-header--avatar:active {
+.core-header--avatar:active {
   background-color: rgba(37, 153, 76, .4);
 }
 
 @media screen and (min-width: 600px) {
   .core-header {
-    padding: .2em .6em .2em 1.6em;
+    padding: .2em 1em .2em 1.6em;
   }
   .core-header h1 {
-    font-size: 1.9em;
+    font-size: 2.5em;
   }
-.core-header .core-header--avatar {
-  padding: .2em;
-}
+  .core-header--avatar {
+    padding: .5em;
+  }
 }

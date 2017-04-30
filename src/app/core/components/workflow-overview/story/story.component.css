@@ -1,0 +1,25 @@
+.workflow-overview-story {
+  display: flex;
+  font-size: 3vw;
+}
+
+.workflow-overview-story--label {
+  margin-left: 1vw;
+}
+
+.workflow-overview-story--value {
+  font-weight: 500;
+  margin: 0 1vw;
+}
+
+@media screen and (min-width: 600px) {
+  .workflow-overview-story {
+    font-size: 1em;
+  }
+  .workflow-overview-story--label {
+    margin-left: .7em;
+  }
+  .workflow-overview-story--value {
+    margin: 0 .7em;
+  }
+}

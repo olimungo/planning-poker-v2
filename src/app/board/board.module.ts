@@ -13,8 +13,8 @@ import { ActivePigsListComponent } from './active-pigs-list/active-pigs-list.com
 import { VotedPigsListComponent } from './voted-pigs-list/voted-pigs-list.component';
 import { VotingPigsListComponent } from './voting-pigs-list/voting-pigs-list.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { ResultComponent } from './result/result.component';
-import { FinalResultComponent } from './final-result/final-result.component';
+import { ResultsComponent } from './results/results.component';
+import { FinalResultsComponent } from './final-results/final-results.component';
 
 @NgModule({
   imports: [
@@ -34,8 +34,8 @@ import { FinalResultComponent } from './final-result/final-result.component';
     VotedPigsListComponent,
     VotingPigsListComponent,
     RegistrationComponent,
-    ResultComponent,
-    FinalResultComponent
+    ResultsComponent,
+    FinalResultsComponent
   ],
   providers: [
     appRoutingProviders

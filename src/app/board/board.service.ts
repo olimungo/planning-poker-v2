@@ -101,7 +101,7 @@ export class BoardService {
 
   finalise(boardKey: string) {
     this.af.database.object(`boards/${boardKey}/workflow/time/end`).set(new Date().getTime());
-    this.setState(boardKey, EState.FINAL_RESULT);
+    this.setState(boardKey, EState.FINAL_RESULTS);
   }
 
   pause(boardKey: string) {

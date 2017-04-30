@@ -8,7 +8,9 @@ import {
   CoreHeaderModalComponent, CorePigsListModalComponent
 } from '.';
 import { CoreService } from './core.service';
-import { WorkflowOverviewComponent } from './components/workflow-overview/workflow-overview.component';
+import { StoryComponent } from './components/workflow-overview/story/story.component';
+import { TimeComponent } from './components/workflow-overview/time/time.component';
+import { PauseComponent } from './components/pause/pause.component';
 
 @NgModule({
   imports: [
@@ -22,7 +24,10 @@ import { WorkflowOverviewComponent } from './components/workflow-overview/workfl
     CoreHeaderComponent,
     CoreSubHeaderComponent,
     CorePigComponent,
-    CorePigsListComponent
+    CorePigsListComponent,
+    StoryComponent,
+    TimeComponent,
+    PauseComponent
   ],
   declarations: [
     CoreHeaderComponent,
@@ -31,7 +36,9 @@ import { WorkflowOverviewComponent } from './components/workflow-overview/workfl
     CorePigsListComponent,
     CoreHeaderModalComponent,
     CorePigsListModalComponent,
-    WorkflowOverviewComponent
+    StoryComponent,
+    TimeComponent,
+    PauseComponent
   ],
   entryComponents: [
     CoreHeaderModalComponent,

@@ -4,11 +4,11 @@ import { IPig } from '../../core/entities';
 import { BoardService } from '../board.service';
 
 @Component({
-  selector: 'board-result',
-  templateUrl: './result.component.html',
-  styleUrls: ['./result.component.css']
+  selector: 'board-results',
+  templateUrl: './results.component.html',
+  styleUrls: ['./results.component.css']
 })
-export class ResultComponent {
+export class ResultsComponent {
   @Input() set boardKey(value: string) {
     this._boardKey = value;
     this.retrieveVotes();

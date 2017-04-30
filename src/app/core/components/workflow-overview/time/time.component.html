@@ -1,0 +1,23 @@
+<div class="workflow-overview-time" *ngIf="time?.start">
+  <i class="fa fa-usd" aria-hidden="true"></i>
+
+  <div class="workflow-overview-time--values" *ngIf="!isEnded">
+    <div class="workflow-overview-time--label">start</div>
+    <div class="workflow-overview-time--value">{{ time.start }}</div><i class="fa fa-angle-right" aria-hidden="true"></i>
+    <div class="workflow-overview-time--label">duration</div>
+    <div class="workflow-overview-time--value">{{ time.duration }}</div><i class="fa fa-angle-right" aria-hidden="true"></i>
+    <div class="workflow-overview-time--label">story</div>
+    <div class="workflow-overview-time--value">{{ time.storyDuration }}</div>
+  </div>
+
+  <div class="workflow-overview-time--values" *ngIf="isEnded">
+    <div class="workflow-overview-time--label">start</div>
+    <div class="workflow-overview-time--value">{{ time.start }}</div><i class="fa fa-angle-right" aria-hidden="true"></i>
+    <div class="workflow-overview-time--label">end</div>
+    <div class="workflow-overview-time--value">{{ time.end }}</div><i class="fa fa-angle-right" aria-hidden="true"></i>
+    <div class="workflow-overview-time--label">duration</div>
+    <div class="workflow-overview-time--value">{{ time.duration }}</div><i class="fa fa-angle-right" aria-hidden="true"></i>
+    <div class="workflow-overview-time--label">pauses</div>
+    <div class="workflow-overview-time--value">{{ time.pauses }}</div>
+  </div>
+</div>

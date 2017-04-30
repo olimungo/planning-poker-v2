@@ -1,17 +1,25 @@
 <div class="board">
   <core-header [boardKey]="boardKey" [displayAvatar]="true"></core-header>
 
+  <div class="board--workflow-overview">
+    <core-workflow-overview-story [boardKey]="boardKey" *ngIf="state !== EState.FINAL_RESULTS"></core-workflow-overview-story>
+    <core-workflow-overview-time [boardKey]="boardKey"></core-workflow-overview-time>
+  </div>
+
   <core-sub-header [boardKey]="boardKey"></core-sub-header>
 
   <div class="board--content">
-    <board-registration [boardKey]="boardKey" *ngIf="state == EState.REGISTRATION || state == EState.DISCUSSION"></board-registration>
-    <board-voted-pigs-list [boardKey]="boardKey" *ngIf="state == EState.VOTE"></board-voted-pigs-list>
-    <board-result [boardKey]="boardKey" *ngIf="state == EState.RESULT"></board-result>
-    <board-final-result [boardKey]="boardKey" *ngIf="state == EState.FINAL_RESULT"></board-final-result>
+    <board-registration [boardKey]="boardKey" *ngIf="state === EState.REGISTRATION || state === EState.DISCUSSION"></board-registration>
+    <board-voted-pigs-list [boardKey]="boardKey" *ngIf="state === EState.VOTE"></board-voted-pigs-list>
+    <board-results [boardKey]="boardKey" *ngIf="state === EState.RESULTS"></board-results>
+    <board-final-results [boardKey]="boardKey" *ngIf="state === EState.FINAL_RESULTS"></board-final-results>
+    <core-pause *ngIf="state == EState.PAUSE"></core-pause>
   </div>
 
   <div>
-    <board-active-pigs-list [boardKey]="boardKey" *ngIf="state == EState.REGISTRATION"></board-active-pigs-list>
-    <board-voting-pigs-list [boardKey]="boardKey" *ngIf="state == EState.DISCUSSION || state == EState.VOTE"></board-voting-pigs-list>
+    <board-active-pigs-list [boardKey]="boardKey" *ngIf="state === EState.REGISTRATION"></board-active-pigs-list>
+
+    <board-voting-pigs-list [boardKey]="boardKey" *ngIf="state === EState.DISCUSSION || state == EState.VOTE || state == EState.PAUSE">
+    </board-voting-pigs-list>
   </div>
 </div>

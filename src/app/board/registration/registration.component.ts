@@ -22,7 +22,7 @@ export class RegistrationComponent {
 
   constructor(private boarService: BoardService) {
     this.onResize(null);
-   }
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -33,7 +33,7 @@ export class RegistrationComponent {
     }
   }
 
-  createPig() {
+  mail() {
     const subject = 'Planning poker URL';
     const message = this.url;
 

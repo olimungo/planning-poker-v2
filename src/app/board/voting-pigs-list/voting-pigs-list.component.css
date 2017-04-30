@@ -1,26 +1,9 @@
 .board-voting-pigs-list {
-  background-color: #3b3f51;
-  border-top: solid 1px #bfc1d0;
-  color: #fff;
-  font-weight: 100;
-  position: relative;
-  z-index: 20;
-  padding: 2vw 0 4vw 0;
-}
-
-.board-voting-pigs-list .board-voting-pigs-list-title {
-  font-weight: 300;
-  color: #a7abbb;
-  padding-left: 2vw;
-  font-size: 2.7vw;
+  padding-bottom: 3vw;
 }
 
 @media screen and (min-width: 900px) {
   .board-voting-pigs-list {
-    padding: 1em 0 2em 0;
-  }
-  .board-voting-pigs-list .board-voting-pigs-list-title {
-    padding-left: 1em;
-    font-size: 1.6em;
+    padding-bottom: 1em;
   }
 }

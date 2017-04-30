@@ -1,10 +1,20 @@
 <div class="pig">
   <core-header [boardKey]="boardKey" [pigKey]="pig?.key" [displayAvatar]="true"></core-header>
-  
+
+  <div class="pig--workflow-overview">
+    <core-workflow-overview-story [boardKey]="boardKey" *ngIf="state !== EState.FINAL_RESULTS"></core-workflow-overview-story>
+    <core-workflow-overview-time [boardKey]="boardKey"></core-workflow-overview-time>
+  </div>
+
   <core-sub-header [boardKey]="boardKey" [pigKey]="pig?.key" [displayScrumMaster]="true"></core-sub-header>
 
   <div class="pig--content">
-    <div class="pig---cards-deck"><pig-cards-deck *ngIf="state === EState.VOTE && !hasVoted" (choose)="vote($event)"></pig-cards-deck></div>
-    <pig-result [boardKey]="boardKey" *ngIf="state === EState.RESULT && pig?.key === scrumMasterKey"></pig-result>
+    <div class="pig--cards-deck" *ngIf="state === EState.VOTE && !hasVoted">
+      <pig-cards-deck (choose)="vote($event)"></pig-cards-deck>
+    </div>
+
+    <core-pause *ngIf="state == EState.PAUSE"></core-pause>
+
+    <pig-results [boardKey]="boardKey" *ngIf="state === EState.RESULTS && pig?.key === scrumMasterKey"></pig-results>
   </div>
 </div>

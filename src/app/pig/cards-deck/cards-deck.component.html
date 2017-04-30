@@ -1,8 +1,10 @@
 <div class="pig-cards-deck">
-  <div class="pig-cards-deck-content">
-    <pig-card *ngFor="let card of cards" (click)="chosen(card)">
-      <div *ngIf="card !== 'INF'">{{ card }}</div>
-      <img class="pig-cards-deck-infinity" src="/assets/svg/infinity.svg" *ngIf="card === 'INF'">
-    </pig-card>
+  <div class="pig-cards-deck--content">
+    <div class="pig-cards-deck--cards">
+      <pig-card *ngFor="let card of cards" (click)="chosen(card)">
+        <div *ngIf="card !== 'INF'">{{ card }}</div>
+        <img class="pig-cards-deck--infinity" src="/assets/svg/infinity.svg" *ngIf="card === 'INF'">
+      </pig-card>
+    </div>
   </div>
 </div>
