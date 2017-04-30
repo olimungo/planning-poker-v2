@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { EState } from '../core/entities';
 import { BoardService } from './board.service';
-import { Observable  } from 'rxjs/Rx';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-board',
@@ -20,52 +20,56 @@ export class BoardComponent {
     this.route.params.subscribe(params => {
       this.boardKey = params['boardKey'];
 
-      if (this.boardKey) {
-        this.boardService.checkBoardExists$(this.boardKey).subscribe(exists => {
-          if (exists) {
-            this.setWatchers();
-          }  else {
-            console.error('Board doesn\'t exists');
-          }
-        });
-      } else {
-        this.boardKey = this.boardService.getNewBoardId();
+      if (!this.boardKey) {
+        this.boardKey = this.boardService.generateBoardKey();
         this.location.replaceState(this.location.path() + `/${this.boardKey}`);
-        this.setWatchers();
       }
+
+      this.setWatchers();
     });
   }
 
   setWatchers() {
+    let checkBoardSubscription: Subscription;
     let previousCount = -1;
     let previousState = -1;
 
+    checkBoardSubscription = this.boardService.checkBoardDateCreated$(this.boardKey).subscribe(result => {
+      if (result.pigs.length > 0 && !result.dateCreated) {
+        this.boardService.setBoardDateCreated(this.boardKey);
+        checkBoardSubscription.unsubscribe();
+      }
+    });
+
     this.boardService.retrieveState$(this.boardKey)
-      .combineLatest(this.boardService.retrieveCountVotedPigs$(this.boardKey)).subscribe(([ state, count ]) => {
+      .combineLatest(this.boardService.retrieveCountVotedPigs$(this.boardKey)).subscribe(([state, count]) => {
         if (count !== previousCount && state === EState.VOTE && count === 0) {
           this.boardService.setState(this.boardKey, EState.RESULTS);
         }
 
         if (state !== previousState) {
-          if (state === EState.PRE_DISCUSSION || state === EState.PRE_REVOTE) {
-            this.boardService.prepareVotingRound(this.boardKey, state);
-          }
-
-          if (state === EState.PRE_FINAL_RESULTS) {
-            this.boardService.finalise(this.boardKey);
-          }
-
-          if (state === EState.PRE_PAUSE) {
-            this.boardService.pause(this.boardKey);
-          }
-
-          if (state === EState.UNPAUSE) {
-            this.boardService.unpause(this.boardKey);
+          switch (state) {
+            case EState.PRE_DISCUSSION || EState.PRE_REVOTE:
+              this.boardService.prepareVotingRound(this.boardKey, state);
+              break;
+            case EState.PRE_FINAL_RESULTS:
+              this.boardService.finalise(this.boardKey);
+              break;
+            case EState.PRE_PAUSE:
+              this.boardService.pause(this.boardKey);
+              break;
+            case EState.UNPAUSE:
+              this.boardService.unpause(this.boardKey);
+              break;
           }
         }
 
         previousState = this.state = state;
         previousCount = count;
       });
+  }
+
+  openGitHub() {
+    window.open('https://github.com/olimungo/planning-poker');
   }
 }

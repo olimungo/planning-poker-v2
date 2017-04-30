@@ -632,7 +632,7 @@ state the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.
 
     The Planning Poker Web application is a tool for estimating users'
-    requests as described in the Scrum practise.
+    requests as described by the Scrum toolbox.
     Copyright (C) 2017  Olivier Mungo
 
     This program is free software: you can redistribute it and/or modify

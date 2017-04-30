@@ -69,4 +69,8 @@ export class PigComponent {
       this.hasVoted = hasVoted;
     });
   }
+
+  openGitHub() {
+    window.open('https://github.com/olimungo/planning-poker');
+  }
 }
