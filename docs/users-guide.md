@@ -40,7 +40,7 @@ The Board displays the votes' progress.
 
 ![Board registration](images/board-voting.png "Board voting")  
 
-Once all pigs have voted, the results is displayed on the Board.
+Once all pigs have voted, the results are displayed on the Board.
 
 ![Board registration](images/board-results.png "Board results")  
 
@@ -56,6 +56,6 @@ In between rounds, the session manager may choose to pause the session. The time
 
 ## $ Final results  
 
-In between rounds, the session manager may hit the END button which will trigger the display of the final results on the Board. A mail with the final resuls may be sent by hitting the _paper plane_ icon.
+In between rounds, the session manager may hit the END button which will trigger the display of the final results on the Board. A mail with the final results may be sent by hitting the _paper plane_ icon.
 
 ![Board registration](images/board-final-results.png "Pig pause") 
