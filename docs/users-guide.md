@@ -17,12 +17,23 @@ The _Pig view_ is recognisable by the green color.
 By hitting the avatar icon in the upper-right corner, one may change his name and also specify an email address. This email address will be used to check if a gravatar image is available [(https://www.gravatar.com)](https://www.gravatar.com).
 
 ![Board registration](images/pig-avatar.png "Pig registration")  
+
+On the board, all the connected pigs are displayed at the bottom of the screend.
+
+![Board registration](images/board-registration-2.png "Board registration")  
   
 When all participants are connected, the session manager hits the START button in order to start the planning poker session.
 
 ![Board registration](images/pig-avatar-2.png "Pig registration")  
 
-On the board, all the connected pigs are displayed at the bottom of the screend.
-
-![Board registration](images/board-registration-2.png "Board registration")  
 ## $ Rounds and votes 
+
+Once started, the session is made of rounds of discussion and votes.
+  
+![Board registration](images/pig-rounds-1.png "Pig registration")  
+
+![Board registration](images/pig-rounds-2.png "Pig registration")  
+
+![Board registration](images/pig-rounds-3.png "Pig registration")  
+
+![Board registration](images/pig-results-1.png "Pig registration")  
