@@ -1,55 +1,50 @@
-.pig-card {
+.card {
   align-items: center;
   border: solid 1px #25ad38;
   border-radius: 2px;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  height: 13vw;
+  height: 15vw;
   margin: 1vw;
-  padding: 1.3vw;
-  width: 13vw;
+  width: 15vw;
 }
 
-.pig-card:hover {
+.card:hover {
   background-color: rgba(37, 173, 56, .2);
 }
 
-.pig-card:active {
+.card:active {
   background-color: rgba(37, 173, 56, .4);
 }
 
-.pig-card:active {
+.card:active {
   opacity: .6;
 }
 
-.pig-card .pig-card-content {
+.card--content {
   align-items: center;
-  background: none;
-  border: none;
-  border-radius: 5px;
   color: #25ad38;
   display: flex;
   font-size: 4vw;
   justify-content: center;
   height: 100%;
-  outline: none;
   width: 100%;
 }
 
 @media screen and (min-width: 400px) {
-  .pig-card-content {
+  .card--content {
     font-size: 3.5vw;
   }
 }
 
 @media screen and (min-width: 600px) {
-  .pig-card {
-    height: 4em;
-    padding: .5em;
-    width: 4em;
+  .card {
+    height: 4.8em;
+    margin: .5em;
+    width: 4.8em;
   }
-  .pig-card .pig-card-content {
+  .card--content {
     font-size: 1.2em;
   }
 }
