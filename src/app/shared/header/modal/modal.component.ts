@@ -1,7 +1,7 @@
 import { Component, Input, Inject } from '@angular/core';
 import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
-import { IPig } from '../../../entities/pig/pig.interface';
+import { IPig } from '../../../core';
 
 @Component({
   selector: 'core-header-modal',

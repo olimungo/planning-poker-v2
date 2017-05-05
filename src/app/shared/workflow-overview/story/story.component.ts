@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { CoreService } from '../../../core.service';
+import { CoreService } from '../../../core';
 
 @Component({
   selector: 'core-workflow-overview-story',

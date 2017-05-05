@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule, MdDialogModule } from '@angular/material';
 
-import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { routing, appRoutingProviders } from './pig.routing';
 
@@ -20,7 +20,7 @@ import { ResultsComponent } from './results/results.component';
     BrowserAnimationsModule,
     MaterialModule,
     MdDialogModule,
-    CoreModule,
+    SharedModule,
     routing
   ],
   exports: [

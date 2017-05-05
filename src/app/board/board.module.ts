@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { QRCodeModule } from 'angular2-qrcode';
 
-import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { routing, appRoutingProviders } from './board.routing';
 
@@ -20,7 +20,7 @@ import { FinalResultsComponent } from './final-results/final-results.component';
     CommonModule,
     MaterialModule,
     QRCodeModule,
-    CoreModule,
+    SharedModule,
     routing
   ],
   exports: [

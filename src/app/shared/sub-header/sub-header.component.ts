@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { EState } from '../../entities/state/state.enum';
-import { CoreService } from '../../core.service';
+import { CoreService, EState } from '../../core';
 
 @Component({
   selector: 'core-sub-header',

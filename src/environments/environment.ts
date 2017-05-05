@@ -5,5 +5,13 @@
 
 export const environment = {
   production: false,
-  backEndUrl: 'http://localhost:4200/'
+  backEndUrl: 'http://localhost:4200/',
+  firebaseConfig: {
+    apiKey: 'AIzaSyAtw0xseqWbTsXkCafeawvPvguppliiUQk',
+    authDomain: 'planningpokerdev.firebaseapp.com',
+    databaseURL: 'https://planningpokerdev.firebaseio.com',
+    projectId: 'planningpokerdev',
+    storageBucket: 'planningpokerdev.appspot.com',
+    messagingSenderId: '1004768470416'
+  }
 };

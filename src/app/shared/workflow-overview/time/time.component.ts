@@ -3,9 +3,7 @@ import { Observable, Subscription } from 'rxjs/Rx';
 
 import * as moment from 'moment';
 
-import { CoreService } from '../../../core.service';
-
-import { EState } from '../../..';
+import { CoreService, EState } from '../../../core';
 
 @Component({
   selector: 'core-workflow-overview-time',

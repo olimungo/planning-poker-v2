@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
-import { IPig } from '../../entities/pig/pig.interface';
+import { IPig } from '../../core';
 import { CorePigsListModalComponent } from './modal/modal.component';
 
 @Component({

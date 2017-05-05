@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
-import { CoreHeaderModalComponent } from '..';
-import { CoreService } from '../../core.service';
+import { CoreHeaderModalComponent } from './modal/modal.component';
 
-import { IPig } from '../..';
+import { CoreService, IPig } from '../../core';
 
 @Component({
   selector: 'core-header',
